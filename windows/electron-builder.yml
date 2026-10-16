@@ -1,0 +1,47 @@
+appId: com.streamcompanion.server
+productName: Stream Companion
+copyright: Copyright © 2026 Stream Companion
+directories:
+  output: release
+  buildResources: build
+files:
+  - src/**/*
+  - package.json
+  - "!**/*.map"
+  - "!node_modules/ffmpeg-static/**"
+  - "!node_modules/ffprobe-static/**"
+asar: true
+afterPack: scripts/afterPack.js
+publish: null
+electronLanguages: [en-US]
+extraResources:
+  - from: build/bin
+    to: bin
+    filter: ["ffmpeg.exe"]
+  - from: build/icon.png
+    to: icon.png
+  - from: build/tray.png
+    to: tray.png
+compression: maximum
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: build/icon.ico
+  artifactName: StreamCompanion-Setup-${version}.${ext}
+  signAndEditExecutable: true
+  requestedExecutionLevel: asInvoker
+nsis:
+  oneClick: false
+  perMachine: true
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeaderIcon: build/icon.ico
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Stream Companion
+  runAfterFinish: true
+  deleteAppDataOnUninstall: false
+  include: build/installer.nsh

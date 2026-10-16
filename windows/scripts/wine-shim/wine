@@ -1,0 +1,14 @@
+#!/bin/sh
+# Used only when cross-building the Windows installer on Linux/macOS.
+# electron-builder asks for the 32-bit rcedit; the x64 build runs under any Wine, so swap it in.
+args=""
+for a in "$@"; do
+  case "$a" in *rcedit-ia32.exe) a=$(printf %s "$a" | sed 's/rcedit-ia32/rcedit-x64/');; esac
+  args="$args '$(printf %s "$a" | sed "s/'/'\\\\''/g")'"
+done
+WINE_BIN="${REAL_WINE:-$(command -v wine64 || command -v wine || echo /usr/lib/wine/wine)}"
+if [ -n "${DISPLAY:-}" ] || ! command -v xvfb-run >/dev/null 2>&1; then
+  eval exec "\"$WINE_BIN\"" $args
+else
+  eval exec xvfb-run -a "\"$WINE_BIN\"" $args
+fi
