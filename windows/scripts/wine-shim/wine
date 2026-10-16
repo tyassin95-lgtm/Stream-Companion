@@ -6,7 +6,14 @@ for a in "$@"; do
   case "$a" in *rcedit-ia32.exe) a=$(printf %s "$a" | sed 's/rcedit-ia32/rcedit-x64/');; esac
   args="$args '$(printf %s "$a" | sed "s/'/'\\\\''/g")'"
 done
-WINE_BIN="${REAL_WINE:-$(command -v wine64 || command -v wine || echo /usr/lib/wine/wine)}"
+SELF="$(cd "$(dirname "$0")" && pwd)/wine"
+WINE_BIN="${REAL_WINE:-}"
+if [ -z "$WINE_BIN" ]; then
+  for c in /usr/lib/wine/wine /usr/lib/wine/wine64 /usr/bin/wine64 /usr/bin/wine /usr/local/bin/wine /opt/homebrew/bin/wine; do
+    [ -x "$c" ] && [ "$c" != "$SELF" ] && WINE_BIN="$c" && break
+  done
+fi
+[ -n "$WINE_BIN" ] || { echo "wine not found" >&2; exit 1; }
 if [ -n "${DISPLAY:-}" ] || ! command -v xvfb-run >/dev/null 2>&1; then
   eval exec "\"$WINE_BIN\"" $args
 else
