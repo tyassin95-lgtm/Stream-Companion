@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:tag="layout/filter_list_dialog_0" android:paddingTop="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="15.0dip" android:paddingEnd="15.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@android:color/black" android:gravity="start" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/dialog_filter_title" />
+    <hu.unideb.studyversity.utils.MaxHeightRecyclerView android:id="@id/filterList" android:tag="binding_1" android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" app:maxHeight="250.0dip" />
+    <View android:id="@id/shadow_view" android:background="@color/divider" android:paddingTop="1.0dip" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginTop="5.0dip" />
+    <LinearLayout android:gravity="end|center" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="50.0dip">
+        <com.google.android.material.button.MaterialButton android:id="@id/cancel_filtering_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_marginEnd="15.0dip" style="@style/Widget.MaterialComponents.Button.TextButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/start_filtering_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@android:string/ok" style="@style/Widget.MaterialComponents.Button.TextButton" />
+    </LinearLayout>
+</LinearLayout>

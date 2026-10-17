@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:tag="layout/intitution_image_slider_item_0" android:focusable="true" android:clickable="true" android:layout_width="100.0dip" android:layout_height="100.0dip" android:layout_marginBottom="15.0dip" android:layout_marginStart="20.0dip" android:layout_marginEnd="0.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@+id/sliderImage" android:tag="binding_1" android:background="@color/colorPrimaryLight" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="center" android:contentDescription="@string/app_name" />
+</androidx.cardview.widget.CardView>

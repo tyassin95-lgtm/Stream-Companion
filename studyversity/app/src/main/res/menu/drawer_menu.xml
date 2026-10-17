@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@id/main_menu" android:checkableBehavior="single">
+        <item android:icon="@drawable/ic_home" android:id="@id/homeFragment" android:title="@string/menu_home_page" />
+        <item android:icon="@drawable/ic_time_table" android:id="@id/timeTableFragment" android:title="@string/menu_time_table" />
+        <item android:icon="@drawable/ic_education_information" android:id="@id/majorDetailsFragment" android:title="@string/menu_major_details" />
+        <item android:icon="@drawable/ic_book" android:id="@id/coursesInformationFragment" android:title="@string/menu_course_informations" />
+        <item android:icon="@drawable/ic_book" android:id="@id/examsInformationFragment" android:title="@string/menu_taken_exams" />
+        <item android:icon="@drawable/ic_education_information" android:id="@id/hak" android:title="@string/menu_hak" />
+        <item android:icon="@drawable/ic_phone_book" android:id="@id/phonebookFragment" android:title="@string/menu_phone_book" />
+        <item android:icon="@drawable/ic_marker_menu" android:id="@id/institutionListFragment" android:title="@string/menu_uni_places" />
+    </group>
+    <group android:id="@id/user_menu" android:checkableBehavior="single">
+        <item android:icon="@drawable/ic_info_circle" android:id="@id/beyond_training" android:title="@string/menu_beyond_training" />
+        <item android:icon="@drawable/ic_happy_challenge" android:id="@id/happy_challenge" android:title="@string/menu_happy_challenge" />
+    </group>
+    <item android:icon="@drawable/ic_login" android:id="@id/login" android:title="@string/menu_login" />
+    <item android:icon="@drawable/ic_logout" android:id="@id/nav_logout" android:title="@string/menu_logout" />
+    <group android:id="@id/ipressum_menu" android:checkableBehavior="single">
+        <item android:id="@id/impressum" android:title="@string/menu_impressum" />
+        <item android:id="@id/privacy" android:title="@string/menu_privacy" />
+        <item android:id="@id/terms_of_use" android:title="@string/menu_terms_of_use" />
+    </group>
+</menu>

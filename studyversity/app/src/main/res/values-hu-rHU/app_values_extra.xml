@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="empty">Nincs megjeleníthető adat.</string>
+    <string name="go_to_settings">BEÁLLÍTÁSOK</string>
+    <string name="lbl_loading">Betöltés</string>
+    <string name="lbl_loading_with_dots">Betöltés…</string>
+    <string name="no_content_in_response">Nincs Tartalom</string>
+    <string name="not_connected_to_internet">Nincs internet kapcsolat, kérlek ellenőrizd a Wifi vagy adatkapcsolatot</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:tag="layout/loading_item_0" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ProgressBar android:id="@id/progress_bar" android:tag="binding_1" android:layout_width="45.0dip" android:layout_height="45.0dip" android:indeterminateTint="@color/colorPrimary" android:indeterminateTintMode="src_in" />
+    <LinearLayout android:tag="binding_2" android:padding="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include layout="@layout/error_view" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:tag="binding_3" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/list_empty_layout" />
+    </LinearLayout>
+</LinearLayout>

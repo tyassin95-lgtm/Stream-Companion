@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/default_activity_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="16.0dip" android:paddingEnd="16.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:id="@id/textView8" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:layout_marginBottom="16.0dip" android:text="@string/gdpr_title" android:textAlignment="center" style="@style/AppTheme.Text.H2" />
+    <WebView android:id="@id/webView" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <androidx.appcompat.widget.SwitchCompat android:textColor="@color/darkBlueGreen" android:id="@id/privacyPolicySwitch" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="32.0dip" android:thumb="@drawable/switch_thumb" android:text="@string/gdpr_privacy_policy_label" app:track="@drawable/switch_track" />
+    <androidx.appcompat.widget.SwitchCompat android:textColor="@color/darkBlueGreen" android:id="@id/terms_of_use_switch" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:thumb="@drawable/switch_thumb" android:text="@string/gdpr_terms_of_use_label" app:track="@drawable/switch_track" />
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/rootView" android:tag="layout/happy_challenge_skip_fragment_0" android:background="@drawable/default_activity_bg" android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="10.0dip" android:paddingEnd="10.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <TextView android:textSize="28.0sp" android:textColor="@color/colorAccent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mood_skip_question_title" android:fontFamily="@font/oxygen_bold" android:textAlignment="center" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="15.0dip" app:srcCompat="@drawable/search_no_result" />
+        <TextView android:textSize="16.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10dp" android:text="@string/mood_skip_subtitle_1" android:textAllCaps="false" android:textAlignment="center" style="@style/AppTheme.Text.Title" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton android:id="@+id/skipButton" android:textColor="@color/white" android:tag="binding_1" android:layout_width="0.0dip" android:layout_height="wrap_content" android:minWidth="250.0dip" android:text="@string/mood_skip" android:layout_weight="1.0" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" android:layout_marginStart="0.0dip" android:layout_marginEnd="10.0dip" android:backgroundTint="@color/darkBlueGreen" app:cornerRadius="8.0dip" app:iconTint="@color/white" style="@style/DefaultOrangeButton" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/continueButton" android:tag="binding_2" android:layout_width="0.0dip" android:layout_height="wrap_content" android:minWidth="250.0dip" android:text="@string/mood_continue" android:layout_weight="1.0" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" app:cornerRadius="8.0dip" style="@style/DefaultOrangeButton" />
+    </LinearLayout>
+</LinearLayout>

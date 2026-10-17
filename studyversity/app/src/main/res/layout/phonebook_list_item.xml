@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:tag="layout/phonebook_list_item_0" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_marginBottom="@dimen/defaultMargin" android:foreground="?selectableItemBackgroundBorderless" android:minHeight="60.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="top" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="16.0dip">
+        <TextView android:id="@+id/nameText" android:textStyle="bold" android:textColor="@color/darkBlueGreen" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp" android:textAlignment="textStart" style="@style/AppTheme.Text.H2" />
+        <TextView android:id="@id/departmentName" android:tag="binding_2" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp" android:textAlignment="textStart" style="@style/AppTheme.Text.P" />
+        <TextView android:id="@id/contactWithDepartmentName" android:tag="binding_3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp" android:textAlignment="textStart" style="@style/AppTheme.Text.P" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

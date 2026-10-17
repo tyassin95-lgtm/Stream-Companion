@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:tag="layout/fragment_social_links_0" android:background="@drawable/default_activity_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingTop="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="16.0dip" android:paddingEnd="16.0dip">
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:text="@string/social_profiles_title" android:textAlignment="center" style="@style/AppTheme.Text.H2" />
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:text="@string/social_profiles_msg" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="32.0dip" android:backgroundTint="@color/orangeRed_30_percent" app:cardCornerRadius="8.0dip" app:cardElevation="0.0dip">
+            <TextView android:textSize="12.0sp" android:textColor="@color/orangeRed" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/social_profile_helper_msg" android:textAlignment="center" />
+        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="32.0dip">
+            <ImageView android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginTop="2.0dip" android:src="@drawable/ic_iconfb" android:layout_marginEnd="11.0dip" />
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/textField" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/facebook_link_hint" app:boxCornerRadiusBottomEnd="8.0dip" app:boxCornerRadiusBottomStart="8.0dip" app:boxCornerRadiusTopEnd="8.0dip" app:boxCornerRadiusTopStart="8.0dip" app:boxStrokeColor="@android:color/white" app:boxStrokeWidth="0.0dip" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/facebookInput" android:textSize="12.0sp" android:tag="binding_1" android:background="@drawable/textinput_rounded_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="@font/oxygen" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="32.0dip">
+            <ImageView android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginTop="2.0dip" android:src="@drawable/ic_iconlinkedin" android:layout_marginEnd="11.0dip" />
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/linked_in_link_hint" app:boxCornerRadiusBottomEnd="8.0dip" app:boxCornerRadiusBottomStart="8.0dip" app:boxCornerRadiusTopEnd="8.0dip" app:boxCornerRadiusTopStart="8.0dip" app:boxStrokeColor="@android:color/white" app:boxStrokeWidth="0.0dip" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/linkedInInput" android:textSize="12.0sp" android:tag="binding_2" android:background="@drawable/textinput_rounded_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="@font/oxygen" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="32.0dip">
+            <ImageView android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginTop="2.0dip" android:src="@drawable/ic_iconinsta" android:layout_marginEnd="11.0dip" />
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/instagram_link_hint" app:boxCornerRadiusBottomEnd="8.0dip" app:boxCornerRadiusBottomStart="8.0dip" app:boxCornerRadiusTopEnd="8.0dip" app:boxCornerRadiusTopStart="8.0dip" app:boxStrokeColor="@android:color/white" app:boxStrokeWidth="0.0dip" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/instagramInput" android:textSize="12.0sp" android:tag="binding_3" android:background="@drawable/textinput_rounded_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="@font/oxygen" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingBottom="30.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginTop="2.0dip" android:src="@drawable/ic_icontiktok" android:layout_marginEnd="11.0dip" />
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/tiktok_link_hint" app:boxCornerRadiusBottomEnd="8.0dip" app:boxCornerRadiusBottomStart="8.0dip" app:boxCornerRadiusTopEnd="8.0dip" app:boxCornerRadiusTopStart="8.0dip" app:boxStrokeColor="@android:color/white" app:boxStrokeWidth="0.0dip" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/tiktokInput" android:textSize="12.0sp" android:tag="binding_4" android:background="@drawable/textinput_rounded_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="@font/oxygen" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/sub_menu" android:tag="layout/single_row_0" android:background="?selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/listItemMinHeight" android:paddingStart="@dimen/sub_menu_item_start_padding" android:paddingEnd="@dimen/sub_menu_item_end_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_width="40.0dip" android:layout_height="40.0dip" app:cardBackgroundColor="@color/teal" app:cardCornerRadius="@dimen/menu_icon_corner_radius" app:cardElevation="0.0dip">
+        <ImageView android:id="@id/sub_menu_icon" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="center" />
+    </androidx.cardview.widget.CardView>
+    <TextView android:id="@id/sub_menu_text" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/sub_menu_title_start_padding" style="@style/AppTheme.Text.H3" />
+</LinearLayout>

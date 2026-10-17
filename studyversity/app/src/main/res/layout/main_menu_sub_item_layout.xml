@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/sub_menu_holder" android:tag="layout/main_menu_sub_item_layout_0" android:background="@color/white" android:focusable="true" android:layout_width="fill_parent" android:layout_height="@dimen/manu_list_header_default_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/sub_menu_detail_holder" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/sub_menu_parent" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/listItemMinHeight" android:paddingStart="@dimen/sub_menu_item_start_padding" android:paddingEnd="15.0dip">
+        <ImageView android:id="@id/menu_item_icon" android:background="@color/sport_red" android:clickable="false" android:layout_width="40.0dip" android:layout_height="40.0dip" android:scaleType="center" />
+        <TextView android:id="@id/menu_item_title" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/sub_menu_title_start_padding" style="@style/AppTheme.Text.MenuItem" />
+    </LinearLayout>
+</LinearLayout>

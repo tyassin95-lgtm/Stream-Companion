@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string-array name="backup_country_names">
+        <item>Сінт-Маартен</item>
+        <item>Нідерландські Карибські острови</item>
+        <item>Кюрасао</item>
+        <item>Південний Судан</item>
+    </string-array>
+    <string-array name="timezone_rename_labels">
+        <item>Австралія, центральний – Пн.Тер.</item>
+        <item>Австралія, центральний – Пд.Авс.</item>
+        <item>Австралія, східний – Квінсленд</item>
+        <item>Австралія, східний – Н.Пд.Уельс</item>
+        <item>Гірський стандартн. – Досон-Крік</item>
+        <item>Центр. стандартний – Саскачеван</item>
+        <item>Східний стандартний – Атікокан</item>
+        <item>Атлантичний стандартний – Квебек</item>
+        <item>Час: Гаваї/Алеут. о-ви – Гаваї</item>
+        <item>Час: Гаваї/Алеут. о-ви – Аляска</item>
+        <item>Тихоокеан.стандарт. – Метлакатла</item>
+        <item>Гірський стандартний – Аризона</item>
+        <item>Тихоокеанський – Баха-Каліфорнія</item>
+        <item>Гірський – Чиуауа</item>
+        <item>Центральний – Тамауліпас</item>
+        <item>Гірський – Сонора</item>
+        <item>Східноафриканський час</item>
+        <item>Атлантичний стандартний час</item>
+        <item>Атлантичний стандартний час</item>
+        <item>Східноєвропейський час</item>
+        <item>Час: Калінінград</item>
+        <item>Час: Амазонка – Рондонія</item>
+        <item>Час: Бразилія – Пара</item>
+    </string-array>
+    <string name="btn_cancel">Отмена</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_yes">Да</string>
+    <string name="hint_time_zone_search">Введіть назву країни</string>
+    <string name="lbl_choose_from_gallery">Выбрать фотографию</string>
+    <string name="lbl_take_photo">Сделать фотографию</string>
+    <string name="no_results_found">Результати не знайдено</string>
+    <string name="palestine_display_name">Палестина</string>
+    <string name="searchview_description_clear">Очистити запит</string>
+</resources>

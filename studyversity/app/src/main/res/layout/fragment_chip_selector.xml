@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:tag="layout/fragment_chip_selector_0" android:background="@drawable/white_activity_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.Toolbar android:theme="@style/Toolbar" android:id="@id/toolbar" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/white_activity_bg" android:paddingTop="24.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="16.0dip" android:paddingEnd="16.0dip">
+        <TextView android:textStyle="bold" android:textColor="@color/teal" android:id="@id/chip_selector_textview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:text="@string/significant_interests" android:textAllCaps="true" style="@style/AppTheme.Text.H1" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/chipList" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@color/colorPrimary" android:minHeight="60.0dip" />
+    </LinearLayout>
+</LinearLayout>

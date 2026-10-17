@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:tag="layout/library_fragment_0" android:background="@drawable/default_activity_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/recyclerView" android:background="@android:color/transparent" android:paddingBottom="@dimen/bottom_sheet_peek_height" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="60.0dip" />
+    <LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/empty_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:padding="@dimen/_5dp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/no_loaned_books" android:textAllCaps="true" android:textAlignment="center" style="@style/AppTheme.Text.H2" />
+        <TextView android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/didnt_you_write_something" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+        <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" app:srcCompat="@drawable/search_no_result" />
+    </LinearLayout>
+</LinearLayout>

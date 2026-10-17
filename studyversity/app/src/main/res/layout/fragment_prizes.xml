@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:tag="layout/fragment_prizes_0" android:background="@color/iceBlue" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="fill_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <TextView android:textColor="@color/darkBlueGreen" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_20dp" android:text="@string/status_report_sibmitted_so_far" android:textAllCaps="true" android:textAlignment="center" android:layout_marginStart="@dimen/_10dp" android:layout_marginEnd="@dimen/_10dp" style="@style/AppTheme.Text.H2" />
+        <RelativeLayout android:gravity="center" android:id="@id/day_bmi_layout" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <hu.unideb.studyversity.utils.CircularProgressView android:id="@id/circleProgress" android:layout_width="140.0dip" android:layout_height="140.0dip" android:layout_centerHorizontal="true" />
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="140.0dip">
+                <TextView android:textStyle="normal" android:tag="binding_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" style="@style/AppTheme.Text.H4" />
+                <TextView android:textSize="50.0sp" android:textStyle="bold" android:textColor="@color/teal" android:id="@id/pointsTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" />
+            </LinearLayout>
+        </RelativeLayout>
+        <include layout="@layout/bottom_helper_view" />
+    </LinearLayout>
+</FrameLayout>

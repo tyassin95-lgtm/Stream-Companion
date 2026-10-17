@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:tag="layout/student_courses_list_item_0" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_marginBottom="@dimen/defaultMargin" android:minHeight="60.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="top" android:orientation="vertical" android:tag="binding_1" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:id="@+id/title" android:textStyle="bold" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp" android:textAlignment="textStart" style="@style/AppTheme.Text.H2" />
+        <include layout="@layout/title_and_label_view" />
+        <include layout="@layout/title_and_label_view" />
+        <include layout="@layout/title_and_label_view" />
+        <include layout="@layout/title_and_label_view" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

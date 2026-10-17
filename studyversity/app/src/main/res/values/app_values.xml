@@ -1,0 +1,1008 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <dimen name="_10dp">10.0dip</dimen>
+    <dimen name="_15dp">15.0dip</dimen>
+    <dimen name="_16dp">16.0dip</dimen>
+    <dimen name="_19dp">19.0dip</dimen>
+    <dimen name="_20dp">20.0dip</dimen>
+    <dimen name="_4dp">4.0dip</dimen>
+    <dimen name="_5dp">5.0dip</dimen>
+    <dimen name="add_to_calendar_height">60.0dip</dimen>
+    <dimen name="alerter_activity_horizontal_margin">18.0dip</dimen>
+    <dimen name="alerter_activity_vertical_margin">16.0dip</dimen>
+    <dimen name="bottom_sheet_peek_height">56.0dip</dimen>
+    <dimen name="custom_dialog_radius">16.0dip</dimen>
+    <dimen name="defaultMargin">10.0dip</dimen>
+    <dimen name="dialog_button_margin">20.0dip</dimen>
+    <dimen name="dialog_button_padding">15.0dip</dimen>
+    <dimen name="happy_challenge_answer_height">100.0dip</dimen>
+    <dimen name="listItemMinHeight">60.0dip</dimen>
+    <dimen name="list_card_corder_radius">10.0dip</dimen>
+    <dimen name="manu_list_header_default_height">60.0dip</dimen>
+    <dimen name="menu_icon_corner_radius">5.0dip</dimen>
+    <dimen name="min_button_height">64.0dip</dimen>
+    <dimen name="recycler_view_item_width">72.0dip</dimen>
+    <dimen name="sub_menu_item_end_padding">5.0dip</dimen>
+    <dimen name="sub_menu_item_start_padding">35.0dip</dimen>
+    <dimen name="sub_menu_title_start_padding">24.0dip</dimen>
+    <dimen name="timeTableListItemMinHeight">100.0dip</dimen>
+    <string-array name="backup_country_codes">
+        <item>SX</item>
+        <item>BQ</item>
+        <item>CW</item>
+        <item>SS</item>
+    </string-array>
+    <string-array name="backup_country_names">
+        <item>Sint Maarten</item>
+        <item>Caribbean Netherlands</item>
+        <item>Curaçao</item>
+        <item>South Sudan</item>
+    </string-array>
+    <array name="com_google_android_gms_fonts_certs">
+        <item>@array/com_google_android_gms_fonts_certs_dev</item>
+        <item>@array/com_google_android_gms_fonts_certs_prod</item>
+    </array>
+    <string-array name="com_google_android_gms_fonts_certs_dev">
+        <item>MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTAeFw0wODA0MTUyMzM2NTZaFw0zNTA5MDEyMzM2NTZaMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBANbOLggKv+IxTdGNs8/TGFy0PTP6DHThvbbR24kT9ixcOd9W+EaBPWW+wPPKQmsHxajtWjmQwWfna8mZuSeJS48LIgAZlKkpFeVyxW0qMBujb8X8ETrWy550NaFtI6t9+u7hZeTfHwqNvacKhp1RbE6dBRGWynwMVX8XW8N1+UjFaq6GCJukT4qmpN2afb8sCjUigq0GuMwYXrFVee74bQgLHWGJwPmvmLHC69EH6kWr22ijx4OKXlSIx2xT1AsSHee70w5iDBiK4aph27yH3TxkXy9V89TDdexAcKk/cVHYNnDBapcavl7y0RiQ4biu8ymM8Ga/nmzhRKya6G0cGw8CAQOjgfwwgfkwHQYDVR0OBBYEFI0cxb6VTEM8YYY6FbBMvAPyT+CyMIHJBgNVHSMEgcEwgb6AFI0cxb6VTEM8YYY6FbBMvAPyT+CyoYGapIGXMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbYIJANWFuGx90071MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADggEBABnTDPEF+3iSP0wNfdIjIz1AlnrPzgAIHVvXxunW7SBrDhEglQZBbKJEk5kT0mtKoOD1JMrSu1xuTKEBahWRbqHsXclaXjoBADb0kkjVEJu/Lh5hgYZnOjvlba8Ld7HCKePCVePoTJBdI4fvugnL8TsgK05aIskyY0hKI9L8KfqfGTl1lzOv2KoWD0KWwtAWPoGChZxmQ+nBli+gwYMzM1vAkP+aayLe0a1EQimlOalO762r0GXO0ks+UeXde2Z4e+8S/pf7pITEI/tP+MxJTALw9QUWEv9lKTk+jkbqxbsh8nfBUapfKqYn0eidpwq2AzVp3juYl7//fKnaPhJD9gs=</item>
+    </string-array>
+    <string-array name="com_google_android_gms_fonts_certs_prod">
+        <item>MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCNMA0GCSqGSIb3DQEBBAUAMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDAeFw0wODA4MjEyMzEzMzRaFw0zNjAxMDcyMzEzMzRaMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBAKtWLgDYO6IIrgqWbxJOKdoR8qtW0I9Y4sypEwPpt1TTcvZApxsdyxMJZ2JORland2qSGT2y5b+3JKkedxiLDmpHpDsz2WCbdxgxRczfey5YZnTJ4VZbH0xqWVW/8lGmPav5xVwnIiJS6HXk+BVKZF+JcWjAsb/GEuq/eFdpuzSqeYTcfi6idkyugwfYwXFU1+5fZKUaRKYCwkkFQVfcAs1fXA5V+++FGfvjJ/CxURaSxaBvGdGDhfXE28LWuT9ozCl5xw4Yq5OGazvV24mZVSoOO0yZ31j7kYvtwYK6NeADwbSxDdJEqO4k//0zOHKrUiGYXtqw/A0LFFtqoZKFjnkCAQOjgdkwgdYwHQYDVR0OBBYEFMd9jMIhF1Ylmn/Tgt9r45jk14alMIGmBgNVHSMEgZ4wgZuAFMd9jMIhF1Ylmn/Tgt9r45jk14aloXikdjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLR29vZ2xlIEluYy4xEDAOBgNVBAsTB0FuZHJvaWQxEDAOBgNVBAMTB0FuZHJvaWSCCQDC4IdGZEowjTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBAUAA4IBAQBt0lLO74UwLDYKqs6Tm8/yzKkEu116FmH4rkaymUIE0P9KaMftGlMexFlaYjzmB2OxZyl6euNXEsQH8gjwyxCUKRJNexBiGcCEyj6z+a1fuHHvkiaai+KL8W1EyNmgjmyy8AW7P+LLlkR+ho5zEHatRbM/YAnqGcFh5iZBqpknHf1SKMXFh4dd239FJ1jWYfbMDMy3NS5CTMQ2XFI1MvcyUTdZPErjQfTbQe3aDQsQcafEQPD+nqActifKZ0Np0IS9L9kR/wbNvyz6ENwPiTrjV2KRkEjH78ZMcUQXg0L3BYHJ3lc69Vs5Ddf9uUGGMYldX3WfMBEmh/9iFBDAaTCK</item>
+    </string-array>
+    <string-array name="timezone_rename_ids">
+        <item>Australia/Darwin</item>
+        <item>Australia/Adelaide</item>
+        <item>Australia/Brisbane</item>
+        <item>Australia/Sydney</item>
+        <item>America/Dawson_Creek</item>
+        <item>America/Regina</item>
+        <item>America/Atikokan</item>
+        <item>America/Blanc-Sablon</item>
+        <item>Pacific/Honolulu</item>
+        <item>America/Adak</item>
+        <item>America/Metlakatla</item>
+        <item>America/Phoenix</item>
+        <item>America/Tijuana</item>
+        <item>America/Ojinaga</item>
+        <item>America/Matamoros</item>
+        <item>America/Hermosillo</item>
+        <item>Africa/Juba</item>
+        <item>America/Kralendijk</item>
+        <item>America/Lower_Princes</item>
+        <item>Europe/Minsk</item>
+        <item>Europe/Kaliningrad</item>
+        <item>America/Porto_Velho</item>
+        <item>America/Belem</item>
+    </string-array>
+    <string-array name="timezone_rename_labels">
+        <item>Australian Central - NT</item>
+        <item>Australian Central - SA</item>
+        <item>Australian Eastern - QLD</item>
+        <item>Australian Eastern - NSW</item>
+        <item>Mountain Standard - Dawson Creek</item>
+        <item>Central Standard - Saskatchewan</item>
+        <item>Eastern Standard - Atikokan</item>
+        <item>Atlantic Standard - Quebec</item>
+        <item>Hawaii-Aleutian - Hawaii</item>
+        <item>Hawaii-Aleutian - Alaska</item>
+        <item>Pacific Standard - Metlakatla</item>
+        <item>Mountain Standard - Arizona</item>
+        <item>Pacific - Baja California</item>
+        <item>Mountain - Chihuahua</item>
+        <item>Central - Tamaulipas</item>
+        <item>Mountain - Sonora</item>
+        <item>East Africa Time</item>
+        <item>Atlantic Standard Time</item>
+        <item>Atlantic Standard Time</item>
+        <item>Eastern European Time</item>
+        <item>Kaliningrad Time</item>
+        <item>Amazon - Rondônia</item>
+        <item>Brasilia - Pará</item>
+    </string-array>
+    <string name="about_me">About me</string>
+    <string name="academic_year_doc_id">studyversity_academic_year_schedule_en</string>
+    <string name="academicyear">Academic calendar</string>
+    <string name="account_balance">Omnibus account balance:</string>
+    <string name="account_delete">Delete account</string>
+    <string name="account_delete_confirm_description">Are you sure you want to delete your account?</string>
+    <string name="account_delete_confirm_label">DELETE</string>
+    <string name="add_all_to_calendar">Add all to calendar</string>
+    <string name="address">Address</string>
+    <string name="app_name">UD Studyversity</string>
+    <string name="app_need_permission_title">Need Permissions</string>
+    <string name="app_need_permissions_message">This app needs permission to use this feature. You can grant them in app settings.</string>
+    <string name="app_open_text">Would you like to install the %1$s application?</string>
+    <string name="available_copies">Available copies:</string>
+    <string name="back">Back</string>
+    <string name="briefly_about_me">Briefly about me</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_ok">Ok</string>
+    <string name="btn_yes">Yes</string>
+    <string name="building_floor_roomnumber">Building, floor, room number</string>
+    <string name="calendar">Calendar</string>
+    <string name="campus">Campus</string>
+    <string name="cancel">Cancel</string>
+    <string name="cannot_open_intent_error_msg">Oops! It can happen that the user indicated the social media link wrong. :(</string>
+    <string name="central_dispatcher_phone">Central phone number</string>
+    <string name="chip_selector_must_select_at_least_one_item">Please, choose at least one!</string>
+    <string name="choose_category">Select category</string>
+    <string name="choose_label">Choose!</string>
+    <string name="choose_package">Choose a package.</string>
+    <string name="close">Close</string>
+    <string name="congratulation">Congratulations!</string>
+    <string name="contact_email_address">interact@unideb.hu</string>
+    <string name="contact_from_study_app_email_subject">Contact from the Studyversity App</string>
+    <string name="courses">Courses</string>
+    <string name="courses_no_result_text">Your courses will appear here</string>
+    <string name="courses_no_result_title">No courses taken</string>
+    <string name="crop_image_menu_crop">Crop</string>
+    <string name="crop_image_menu_flip">Flip</string>
+    <string name="crop_image_menu_flip_horizontally">Flip horizontally</string>
+    <string name="crop_image_menu_flip_vertically">Flip vertically</string>
+    <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
+    <string name="crop_image_menu_rotate_right">Rotate</string>
+    <string name="current_level">Level %1$s</string>
+    <string name="deac">DEAC</string>
+    <string name="deacURL">https://deac.hu</string>
+    <string name="department_name_label">Organisation, position</string>
+    <string name="dexpoAccompanyingProgramsURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/id/4509184</string>
+    <string name="dexpoFacebookLink">https://www.facebook.com/debrecenuniversity/</string>
+    <string name="dexpoFacultyAFSEMURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Agricultural and Food Sciences and Environmental Managemen</string>
+    <string name="dexpoFacultyOfChildAndSpecialNeedsEducationURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Child and Special Needs Education</string>
+    <string name="dexpoFacultyOfDentistryURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Dentistry</string>
+    <string name="dexpoFacultyOfEconomicsAndBusinessURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Economics and Business</string>
+    <string name="dexpoFacultyOfEngineeringURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Engineering</string>
+    <string name="dexpoFacultyOfHealthScienceURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Health</string>
+    <string name="dexpoFacultyOfHumanitiesURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Humanities</string>
+    <string name="dexpoFacultyOfInformaticsURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Informatics</string>
+    <string name="dexpoFacultyOfLawURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Law</string>
+    <string name="dexpoFacultyOfMedicineURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Medicine</string>
+    <string name="dexpoFacultyOfMusicURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Music</string>
+    <string name="dexpoFacultyOfPharmacyURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Pharmacy</string>
+    <string name="dexpoFacultyOfScienceAndTechnologyURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Faculties/Faculty of Science and Technology</string>
+    <string name="dexpoFavouriteMajorURL">https://beiskolazas.unideb.hu/</string>
+    <string name="dexpoForParentsURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Local informations/For parents</string>
+    <string name="dexpoGetCertificateURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO angol/Cetificates</string>
+    <string name="dexpoGetQuestionariesURL">https://e-kerdoivek.unideb.hu/en/webform-mobile/dexpo_2022</string>
+    <string name="dexpoInformativeLecturesURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/id/4509190</string>
+    <string name="dexpoInstagramLink">https://www.instagram.com/unideb_official/</string>
+    <string name="dexpoIntroductionURL" formatted="false">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/DEXPO%20SZOLNOK%20angol/What%20is%20DExpo</string>
+    <string name="dexpoKeepURL">https://keep.unideb.hu/</string>
+    <string name="dexpoMapURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/id/4509188</string>
+    <string name="dexpoStandsURL">https://mad-hatter.it.unideb.hu/portal/displayDocument/id/4509189</string>
+    <string name="dexpoTiktokLink">https://www.tiktok.com/discover/debreceni-egyetem</string>
+    <string name="dialog_filter_title">Filters</string>
+    <string name="didnt_you_write_something">"Haven't you misspelled something?"</string>
+    <string name="direct_phone">Direct phone number</string>
+    <string name="dkv_menetrend_id">hu.donmade.menetrend.budapest</string>
+    <string name="done">Done</string>
+    <string name="due_date">Due date:</string>
+    <string name="email">E-mail</string>
+    <string name="entertainment_places">Entertainment</string>
+    <string name="error">Error</string>
+    <string name="error_lbl">Error</string>
+    <string name="error_retry">Hiba! Koppints ide az ismételt próbálkozáshoz.</string>
+    <string name="exams_no_result_text">Your exams will appear here</string>
+    <string name="exams_no_result_title">No exams taken</string>
+    <string name="facebook_link_hint">facebook.com/</string>
+    <string name="faculties">Faculties</string>
+    <string name="faculties_title_label">"Faculties where I'm looking for new friends."</string>
+    <string name="formatted_description_for_calendar">"%1$s
+%2$s"</string>
+    <string name="formatted_subject_name">%1$s - %2$s (%3$s)</string>
+    <string name="formatted_subject_name_for_calendar">%1$s (%2$s)</string>
+    <string name="gdpr_privacy_policy_label">I have read and agreed to the Privacy Policy.</string>
+    <string name="gdpr_tab_accept_error_msg">Terms and Conditions and Privacy Policy must be accepted!</string>
+    <string name="gdpr_terms_of_use_label">I have read and agreed to the Terms and Conditions.</string>
+    <string name="gdpr_title">Privacy Policy and Terms and Conditions.</string>
+    <string name="happy_challange_label">Allow happy challenge function</string>
+    <string name="happy_challenge_json_url">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/Happy%20Challange/en/happy_challenge_gifts.json</string>
+    <string name="happy_challenge_questionnaire_bad_mood_url">https://e-kerdoivek.unideb.hu/en/studyversity-rosszhangulat-kerdoiv</string>
+    <string name="happy_challenge_questionnaire_great_mood_url">https://e-kerdoivek.unideb.hu/en/studyversity-johangulat-kerdoiv</string>
+    <string name="happy_challenge_win_dialog_message">You have told us how you are feeling a 150 times already! Great! We have a small gift for you that you can pick up at the Event Coordination and Alumni Centre!</string>
+    <string name="happy_challenge_win_dialog_title">You won!</string>
+    <string name="happychallenge_form_fill_in_button_title">I WANT TO COMPLETE IT</string>
+    <string name="happychallenge_form_please_fill_in_form_text">Please complete this form to support our work.</string>
+    <string name="hc_bad">Miserable</string>
+    <string name="hc_bad_mood_label">Why are you feeling bad?</string>
+    <string name="hc_great">Great</string>
+    <string name="hc_great_mood_label">Glad to see you are feeling well.</string>
+    <string name="hc_normal">So-so</string>
+    <string name="hc_normal_mood_label">I wish you a great day!</string>
+    <string name="hello">Hello</string>
+    <string name="hello_name">Hello, %1$s!</string>
+    <string name="hint_time_zone_search">Type country name</string>
+    <string name="how_can_i_search">How to search?</string>
+    <string name="how_can_i_search_message">"By using the search box above, you can search for:
+ • - name of employee, 
+ • - position of the employee,
+ • - phone number extension 
+ • and any combination thereof. Searching for fragments is also possible: e.g. by searching for chancel bács zoltán, the only hit will be Dr. Bács Zoltán chancellor."</string>
+    <string name="how_can_i_win_de_prizes">How can I win a UD gift?</string>
+    <string name="how_can_i_win_de_prizes_message">You may win UD gifts if you use the “How I feel” function of the app. Each “How I feel” feedback is recorded in the app and depending on their number, you may reach different levels. If you indicated your mood 150 times, you get a gift which you can collect at the Event Coordination and Alumni Centre (Egyetem tér Campus, Main building, Ground floor 17). Then the game starts again.</string>
+    <string name="hows_your_day">How are you feeling today?</string>
+    <string name="i_fill">I want to complete it</string>
+    <string name="impressum_url">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/Egyéb dokumentumok angol/Impressum</string>
+    <string name="information">Information</string>
+    <string name="instagram_link_hint">Instagram.com/</string>
+    <string name="institute_detail_header_image">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/Noimage/institution_no_image.jpg</string>
+    <string name="interests_and_faculties_error_msg">Please select an interest, faculty and language!</string>
+    <string name="interests_helper_msg">"Can't find the activity you're looking for? You'll be able to suggest new activities for your upcoming profile."</string>
+    <string name="item_has_no_location_data">The selected item has no location data.</string>
+    <string name="label_invalid_number_range">Out of range: min: %1$d max: %2$d</string>
+    <string name="language_code">en_GB</string>
+    <string name="languages">Languages</string>
+    <string name="lbl_choose_from_gallery">Select from Gallery</string>
+    <string name="lbl_take_photo">Capture new</string>
+    <string name="level_upgrade_bottom_button_title">Reward list</string>
+    <string name="level_upgrade_middle_text">You reached a new level!</string>
+    <string name="library_my_loans">My library loans</string>
+    <string name="library_my_loans_title">My book loans</string>
+    <string name="library_search">Search in library</string>
+    <string name="linked_in_link_hint">linkedin.com/</string>
+    <string name="linklibrary">Links</string>
+    <string name="login_was_not_success">Login was not success!</string>
+    <string name="mandatory_field">Field is required!</string>
+    <string name="mark_as_friend_dialog_text">Are you sure that you want to indicate that you are interested in the user? If so, the user will be notified that you are planning to add them as a friend or follow them on one of their social media profiles.</string>
+    <string name="mark_as_my_interest_button">I say hello</string>
+    <string name="meal">Food places</string>
+    <string name="mediversity_app">Download Mediversity app</string>
+    <string name="mediversity_id">hu.unideb.mediversity.androidapp</string>
+    <string name="member_detail_error_text">"Always respect other people's decision whether they would like to contact you or not."</string>
+    <string name="member_detail_helper_text">"You can view a user's social media profile, where you can add them as a friend or follow them. With the help of the \"I say hello\" button you can indicate to the user that you added them as a friend or followed them on one of their social media sites."</string>
+    <string name="menu_beyond_training">Beyond education</string>
+    <string name="menu_contact">Contact</string>
+    <string name="menu_course_informations">Courses taken</string>
+    <string name="menu_dexpo">DEXPO Szolnok</string>
+    <string name="menu_events">Events</string>
+    <string name="menu_hak">Educational information</string>
+    <string name="menu_happy_challenge">Happy Challenge</string>
+    <string name="menu_home_page">Main screen</string>
+    <string name="menu_impressum">Imprint</string>
+    <string name="menu_informations">Information</string>
+    <string name="menu_login">Login</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_major_details">Educational information</string>
+    <string name="menu_minDEnt_rolam">All about me</string>
+    <string name="menu_my_messages">My Messages</string>
+    <string name="menu_my_mood">My mood</string>
+    <string name="menu_news">News</string>
+    <string name="menu_phone_book">Phone book</string>
+    <string name="menu_privacy">Privacy</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_sport">Sport</string>
+    <string name="menu_sport_link">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/Sport angol/Studyversity sport en</string>
+    <string name="menu_taken_exams">Exams taken</string>
+    <string name="menu_terms_of_use">Terms and conditions of use</string>
+    <string name="menu_time_table">Course Schedule</string>
+    <string name="menu_uni_places">University venues</string>
+    <string name="menu_university_label">My University</string>
+    <string name="message">Message</string>
+    <string name="mobilenetwork_label">Allow mobile internet</string>
+    <string name="modd_reward_gist_list_label">&lt;b&gt;Optional gifts:&lt;/b&gt; %1$s</string>
+    <string name="module">Program</string>
+    <string name="mood_continue">Continue</string>
+    <string name="mood_faq_1">What rewards can I get?</string>
+    <string name="mood_faq_2">How can I earn points?</string>
+    <string name="mood_faq_3">How do I claim my reward?</string>
+    <string name="mood_faq_4">Can I log later?</string>
+    <string name="mood_game_ended_failed">"Unfortunately, you didn't manage to complete the game within 365 days, but don't be sad! You can choose from gifts up to the completed level."</string>
+    <string name="mood_game_ended_success">You won the grand prize, the Campus Festival Pass! Tell us your mood tomorrow as well, which will start a new game, but your prize will remain available for you to pick up!</string>
+    <string name="mood_game_restarted_and_reawrd_not_collected">"You have a game that is closed but you haven't claimed your prize yet!"</string>
+    <string name="mood_game_url">https://mad-hatter.it.unideb.hu/portal/displayDocument/id/4168003</string>
+    <string name="mood_game_url_how_to_collect_reward_url">https://mad-hatter.it.unideb.hu/portal/displayDocument/id/4168004</string>
+    <string name="mood_history">History</string>
+    <string name="mood_level_upgrade_description">"You've completed %1$s stages of the game if you want you can choose a gift from this track, or you can continue playing for the gifts that will be available in the next tracks."</string>
+    <string name="mood_log">Add mood</string>
+    <string name="mood_my_rewards">My rewards</string>
+    <string name="mood_points">Points</string>
+    <string name="mood_reward_gifts_last_title">Maybe you won it?</string>
+    <string name="mood_reward_helper_text">To get new points, don’t forget to log!</string>
+    <string name="mood_skip">Skip</string>
+    <string name="mood_skip_question_title">Are you sure you want to skip it?</string>
+    <string name="mood_skip_subtitle_1">By skipping, you might lose the chance to win a <font fgcolor="#FFAB0F">Campus Festival pass</font>" at the end of the year.
+
+ You can also log it later under the „My Mood” tab."</string>
+    <string name="mood_statistics">Statistics</string>
+    <string name="mood_win_campus_label">Win a Campus Festival pass!</string>
+    <string name="moodle_id">com.moodle.moodlemobile</string>
+    <string name="my_interests_label">Indicate what common activities you are looking for a partner in, which faculty and the languages you speak.</string>
+    <string name="my_interests_title">My interest</string>
+    <string name="my_profile">My profile</string>
+    <string name="my_training_list">My programs</string>
+    <string name="name">Name</string>
+    <string name="navigation">Navigation</string>
+    <string name="neptun_error_text">An error occurred while querying the NEPTUN data!</string>
+    <string name="news_url">news/listRssMessageFromMoreChannels/%1$s</string>
+    <string name="no_available_copies">No available copies.</string>
+    <string name="no_internet">Nincs internetkapcsolat</string>
+    <string name="no_internet_connection_msg">It seems that you are not connected to the internet. Please connect to the network or look for a WiFi.</string>
+    <string name="no_internet_connection_msg_and_login">It seems that you are not connected to the internet and your previous searches are also unavailable. Please connect to the network or look for a WiFi and log in.</string>
+    <string name="no_internet_limited_access">You need an internet connection to use this function. Limited operation in offline mode.</string>
+    <string name="no_internet_message">Az alkalmazás használatához kérjük kapcsold be az internetet!</string>
+    <string name="no_loaned_books">Currently no loans.</string>
+    <string name="no_menu_found_by_this_title">This menu item does not exist</string>
+    <string name="no_mood_answer_yet">You have not recorded your mood yet.</string>
+    <string name="no_results_found">No results found</string>
+    <string name="not_avalible_navigation_software_error_msg">No navigation software is installed on your device.</string>
+    <string name="not_taken_over">Not received</string>
+    <string name="odt_profil">Hungarian doctoral council profile</string>
+    <string name="one_week">1 week</string>
+    <string name="oops_label">Oops!</string>
+    <string name="organization_website">Organisation website</string>
+    <string name="organizations_in_the_building">Organisations in the building</string>
+    <string name="over_education">Beyond education</string>
+    <string name="palestine_display_name">Palestine</string>
+    <string name="past">Past</string>
+    <string name="phone_number">Phone number</string>
+    <string name="phonenumber_with_extension">Phone number, extension</string>
+    <string name="place_name_label">Name of venue</string>
+    <string name="please_fill_the_questionnaire">Please complete this form to support our work.</string>
+    <string name="please_upload_an_image">Please, upload a profile picture of yourself or choose a default avatar and write a few lines about yourself.</string>
+    <string name="please_upload_an_image_error">Uploading a photo or choosing an avatar is required!</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="please_wathc_this_video_to_changyour_mood">Watch this video and have a nice day!</string>
+    <string name="prefered_languages">Preferred language</string>
+    <string name="privacy_policy_url">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/Egyéb dokumentumok angol/Privacy policy</string>
+    <string name="prizes">Prizes</string>
+    <string name="profile_error">Profile error...</string>
+    <string name="public_transport_timetables">Download Telvira app</string>
+    <string name="publication">Edition:</string>
+    <string name="push_notifications">Push messages</string>
+    <string name="questionnaires">Questionnaires</string>
+    <string name="quote">Quote</string>
+    <string name="received_gift">Received gift</string>
+    <string name="registration_back_button_message">Going back will cancel the registration process. Do you still want to continue?</string>
+    <string name="remove_from_my_interest_button">I say goodbye</string>
+    <string name="rental_locaition">Lending location:</string>
+    <string name="requested_content_is_not_available_without_sync">It seems that you are not connected to the internet and this content cannot be displayed without synchronisation. Please connect to the network or log in.</string>
+    <string name="requested_content_is_not_yet_available">Unfortunately, this content cannot be displayed without internet connection. We need storage space authorization to store the data for offline operation once you have internet connection again.</string>
+    <string name="sadly_no_search_result">No search result, sorry.</string>
+    <string name="scholar_ship_id">studyversity_student_scholarships_en</string>
+    <string name="search">Search</string>
+    <string name="search_in_our_catalog">Search our online catalogue</string>
+    <string name="search_in_our_catalog_message">Type the title, author or publisher of the book you are looking for and click Search.</string>
+    <string name="search_on_our_map">Search our online map</string>
+    <string name="search_on_our_map_message">Type the name of the location you are looking for in the search box or browse among our locations based on categories. After loading, click on the element in the list and check its data sheet or use the map view and by clicking on the marker in the map, open the description card for the location.</string>
+    <string name="search_on_our_map_message_sport">In the search field, enter the name of the place you are looking for (e.g. DEAC) that can be linked to the place you are looking for. After loading, click on the item that appears in the list and view its data sheet, or use the map view and click on the marker that appears on the map to open the card describing the location.</string>
+    <string name="search_the_catalog">Search the catalogue</string>
+    <string name="searchview_description_clear">Clear query</string>
+    <string name="semester">Semester</string>
+    <string name="send">Send</string>
+    <string name="send_email">Send e-mail</string>
+    <string name="setCenterURL">https://setcenter.hu</string>
+    <string name="set_center">SET center</string>
+    <string name="settings_fotter_text">On this screen, you can set what types of notifications you want to receive within the app.</string>
+    <string name="settings_info_text_1">If you use this setting, you enable all notifications of the application.</string>
+    <string name="settings_info_text_2">Notifications in connection with various university and student announcements and information.</string>
+    <string name="settings_info_text_4">Notifications about advertisements and promotions.</string>
+    <string name="settings_info_text_5">Additional notifications in other categories.</string>
+    <string name="settings_push_everything_on">I am interested in everything.</string>
+    <string name="settings_push_other_notifications">Other notifications</string>
+    <string name="settings_push_promotion">Promotion</string>
+    <string name="settings_push_student_information">I am interested in student information.</string>
+    <string name="short_description">Short description</string>
+    <string name="significant_interests">Common activities</string>
+    <string name="sixty_days">60 days</string>
+    <string name="skip">Skip</string>
+    <string name="social_profile_helper_msg">"Only those of your social media profiles should be indicated that you'd like to share with others."</string>
+    <string name="social_profiles_msg">Indicate your social media links to let people keep in touch with you.</string>
+    <string name="social_profiles_title">Social media profiles</string>
+    <string name="social_tab_error_msg">Please, indicate at least one social media profile to let people keep in touch with you!</string>
+    <string name="sportInstituteURL">https://sportsci.unideb.hu</string>
+    <string name="sportMateFinderURL">https://sporttars.dev.unideb.hu</string>
+    <string name="sportRegistrationURL">https://sportreg.dev.unideb.hu</string>
+    <string name="sport_events">Sports events</string>
+    <string name="sport_news">Sports news</string>
+    <string name="sport_places">Sports venues</string>
+    <string name="sport_questionary_url">https://mad-hatter.it.unideb.hu/portal/displayDocument/id/3590954</string>
+    <string name="sport_registration">Sports registration</string>
+    <string name="sport_sportsci">Sports Science Coordination Institute</string>
+    <string name="sports_organizations">Sports Organizations</string>
+    <string name="sportsmate_finder">Sportsmate finder</string>
+    <string name="status_report_sibmitted_so_far">Status reports submitted so far:</string>
+    <string name="student_scholar_ship">Scholarships</string>
+    <string name="student_scholar_ship_title">The system of fees and benefits based on educational activity and social background at the University of Debrecen are determined by the Regulation on Student Fees and Benefits of the University of Debrecen” based on Government Decree no. 51/2007 (26 March) on the Benefits Paid to and Certain Fees to be Paid by the Students Studying in Higher Education Institutions. . Based on such regulations, the students may be entitled to the following benefits.</string>
+    <string name="studydepartment">Registrar’s offices</string>
+    <string name="sub_menu_dexpo_accompanying_programs">Accompanying programs</string>
+    <string name="sub_menu_dexpo_facebook">Facebook</string>
+    <string name="sub_menu_dexpo_faculty_afsem">Faculty of Agricultural and Food Sciences and Environmental Management</string>
+    <string name="sub_menu_dexpo_faculty_denistry">Faculty of Dentistry</string>
+    <string name="sub_menu_dexpo_faculty_econonmics_business">Faculty of Economics and Business</string>
+    <string name="sub_menu_dexpo_faculty_engineering">Faculty of Engineering</string>
+    <string name="sub_menu_dexpo_faculty_health_science">Faculty of Health Science</string>
+    <string name="sub_menu_dexpo_faculty_humanities">Faculty of Humanities</string>
+    <string name="sub_menu_dexpo_faculty_informatics">Faculty of Informatics</string>
+    <string name="sub_menu_dexpo_faculty_information">Faculty information</string>
+    <string name="sub_menu_dexpo_faculty_law">Faculty of Law</string>
+    <string name="sub_menu_dexpo_faculty_medicine">Faculty of Medicine</string>
+    <string name="sub_menu_dexpo_faculty_music">Faculty of Music</string>
+    <string name="sub_menu_dexpo_faculty_pharmacy">Faculty of Pharmacy</string>
+    <string name="sub_menu_dexpo_faculty_science_technoligy">Faculty of Science and Technology</string>
+    <string name="sub_menu_dexpo_faculty_special_needs">Faculty of Child and Special Needs Education</string>
+    <string name="sub_menu_dexpo_find_your_favourite_major">Courses</string>
+    <string name="sub_menu_dexpo_for_parents">For parents</string>
+    <string name="sub_menu_dexpo_get_certificate">Certificate request</string>
+    <string name="sub_menu_dexpo_informative_lectures">Informative presentations</string>
+    <string name="sub_menu_dexpo_instagram">Instagram</string>
+    <string name="sub_menu_dexpo_introduction">Introduction</string>
+    <string name="sub_menu_dexpo_keep">DE KEEP</string>
+    <string name="sub_menu_dexpo_map">Map</string>
+    <string name="sub_menu_dexpo_on_site_information">Local info</string>
+    <string name="sub_menu_dexpo_programmes">Programs</string>
+    <string name="sub_menu_dexpo_questionnaries">Questionnaire</string>
+    <string name="sub_menu_dexpo_social_media">Social media</string>
+    <string name="sub_menu_dexpo_stands">Stands</string>
+    <string name="sub_menu_dexpo_tiktok">Tiktok</string>
+    <string name="summary">Summary</string>
+    <string name="telvira_id">com.vasga.telvira</string>
+    <string name="terms_of_use_url">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/Egyéb dokumentumok angol/Terms of use</string>
+    <string name="thirty_days">30 days</string>
+    <string name="tiktok_link_hint">tiktok.com/</string>
+    <string name="tourism_and_sports_management">Institute of Sports Economics and Management</string>
+    <string name="tourism_and_sports_management_url">https://econ.unideb.hu/en/institute-sports-economics-and-management</string>
+    <string name="tudoster_profil">iDEa Academic Profiles</string>
+    <string name="turn_in">Switch on</string>
+    <string name="turning_on">Bekapcsolás</string>
+    <string name="two_weeks">2 weeks</string>
+    <string name="ud_community">UD Community place</string>
+    <string name="ud_community_button_title">I register.</string>
+    <string name="ud_community_welcome_description">A place where you can get to know new people. Find a friend, a companion to learn or just a partner for a university project.</string>
+    <string name="ud_community_welcome_title">What is UD Community?</string>
+    <string name="unipass">Download Unipass app</string>
+    <string name="unipass_id">com.move2m.unipass</string>
+    <string name="unipass_partners">Unipass partners</string>
+    <string name="unipass_url">https://en.unipass.hu/elfogadohelyek/helyek</string>
+    <string name="unknown_subject_name">Unknown course name</string>
+    <string name="upload_image">Uploading a photo</string>
+    <string name="useful_links_url" formatted="false">https://mad-hatter.it.unideb.hu/portal/displayDocument/Studyversity/Tartalmak/Linkt%C3%A1r%20angol/Links</string>
+    <string name="video">Video</string>
+    <string name="warning">Warning</string>
+    <string name="webpage">Website</string>
+    <string name="website">Website</string>
+    <string name="webview_error">There was an error loading the website.</string>
+    <string name="who_i_am_interested_in">People I am interested in.</string>
+    <string name="who_may_be_interested">People I might be interested in.</string>
+    <string name="why_do_you_ask_it_message">When you start the app, you can tell us how you feel that day. To do so, select the smiley reflecting your mood. In exchange, you get a gift from us, which may be a quotation, a song or a video. Don’t worry, we won’t misuse your data. If you think that you don’t need this option, click on Information and switch this function off in the Settings.</string>
+    <string name="why_do_you_ask_it_title">Why are we asking you this question?</string>
+    <string name="wizard_finish_button_label">"Let's go to the community."</string>
+    <string name="wizard_finish_msg">Your UD profile is complete, so the list of students with similar interests is now displayed.</string>
+    <string name="wizard_finish_title">Congratulations</string>
+    <style name="AppTheme" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:textViewStyle">@style/DefaultTextFont</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_left</item>
+        <item name="actionOverflowButtonStyle">@style/OverFlow</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/rippleColor</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="toolbarStyle">@style/AppTheme.ToolbarTheme</item>
+    </style>
+    <style name="AppTheme.MoodTabText" parent="@style/TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/darkBlueGreen</item>
+        <item name="android:fontFamily">@font/oxygen_bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="AppTheme.Text.H1" parent="@style/TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/oxygen_bold</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+    <style name="AppTheme.Text.H2" parent="@style/TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/teal</item>
+        <item name="android:fontFamily">@font/oxygen_bold</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+    <style name="AppTheme.Text.H3" parent="@style/TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">@font/oxygen</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+    <style name="AppTheme.Text.H4" parent="@style/TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/darkBlueGreen</item>
+        <item name="android:fontFamily">@font/oxygen_bold</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+    <style name="AppTheme.Text.H4.UPPERCASE" parent="@style/AppTheme.Text.H4">
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="AppTheme.Text.H6" parent="@style/TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/brownGrey</item>
+        <item name="android:fontFamily">@font/oxygen</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+    <style name="AppTheme.Text.MenuItem" parent="@style/AppTheme.Text.H3">
+        <item name="android:textColor">@drawable/selector_viewgroup_child_textcolor</item>
+    </style>
+    <style name="AppTheme.Text.P" parent="@style/TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">@font/oxygen</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+    <style name="AppTheme.Text.Title" parent="@style/TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/darkBlueGreen</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/oxygen_bold</item>
+    </style>
+    <style name="AppTheme.ToolbarTheme" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="subtitleTextAppearance">@style/ToolbarSubtitleTheme</item>
+        <item name="titleTextAppearance">@style/ToolbarTitleTheme</item>
+    </style>
+    <style name="DefaultOrangeButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingTop">@dimen/dialog_button_padding</item>
+        <item name="android:paddingBottom">@dimen/dialog_button_padding</item>
+        <item name="android:layout_marginStart">@dimen/dialog_button_margin</item>
+        <item name="android:layout_marginEnd">@dimen/dialog_button_margin</item>
+        <item name="android:backgroundTint">@drawable/default_orange_button</item>
+        <item name="iconTint">@color/black</item>
+    </style>
+    <style name="DefaultTextFont" parent="@android:style/Widget.TextView">
+        <item name="android:fontFamily">@font/oxygen</item>
+    </style>
+    <style name="DialogWithSpinnerDatePicker" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:datePickerStyle">@style/OnlySpinnerDatePicker</item>
+    </style>
+    <style name="HeaderText" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/darkBlueGreen</item>
+        <item name="android:fontFamily">@font/oxygen_bold</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+    <style name="MenuImageGreen">
+        <item name="android:background">@drawable/selector_viewgroup_green_inverse</item>
+        <item name="tintColorStateList">@drawable/icon_selector_green</item>
+    </style>
+    <style name="MenuImageOrange">
+        <item name="android:background">@drawable/selector_viewgroup_orange_inverse</item>
+        <item name="tintColorStateList">@drawable/icon_selector_orange</item>
+    </style>
+    <style name="MenuImagePink">
+        <item name="android:background">@drawable/selector_viewgroup_pink_inverse</item>
+        <item name="tintColorStateList">@drawable/icon_selector_pink</item>
+    </style>
+    <style name="MenuImagePurple">
+        <item name="android:background">@drawable/selector_viewgroup_purple_inverse</item>
+        <item name="tintColorStateList">@drawable/icon_selector_purple</item>
+    </style>
+    <style name="MenuImageRed">
+        <item name="android:background">@drawable/selector_viewgroup_red_inverse</item>
+        <item name="tintColorStateList">@drawable/icon_selector_red</item>
+    </style>
+    <style name="MenuImageSportGreen">
+        <item name="android:background">@drawable/selector_viewgroup_sport_green_inverse</item>
+        <item name="tintColorStateList">@drawable/icon_selector_sport_green</item>
+    </style>
+    <style name="MenuItem" parent="@style/AppTheme.Text.H3">
+        <item name="android:textColor">@drawable/selector_viewgroup_child_textcolor</item>
+    </style>
+    <style name="MenuItemGreen">
+        <item name="android:background">@drawable/selector_viewgroup_green</item>
+    </style>
+    <style name="MenuItemOrange">
+        <item name="android:background">@drawable/selector_viewgroup_orange</item>
+    </style>
+    <style name="MenuItemPink">
+        <item name="android:background">@drawable/selector_viewgroup_pink</item>
+    </style>
+    <style name="MenuItemPurple">
+        <item name="android:background">@drawable/selector_viewgroup_purple</item>
+    </style>
+    <style name="MenuItemRed">
+        <item name="android:background">@drawable/selector_viewgroup_red</item>
+    </style>
+    <style name="MenuItemSportGreen">
+        <item name="android:background">@drawable/selector_viewgroup_sport_green</item>
+    </style>
+    <style name="MyShapeAppearance">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">0.0dip</item>
+        <item name="cornerSizeBottomRight">0.0dip</item>
+        <item name="cornerSizeTopLeft">5.0dip</item>
+        <item name="cornerSizeTopRight">5.0dip</item>
+    </style>
+    <style name="OnlySpinnerDatePicker" parent="@android:style/Widget.Material.DatePicker">
+        <item name="android:calendarViewShown">false</item>
+        <item name="android:datePickerMode">spinner</item>
+    </style>
+    <style name="OnlySpinnerDatePickerDialog" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:dialogTheme">@style/DialogWithSpinnerDatePicker</item>
+        <item name="android:datePickerStyle">@style/OnlySpinnerDatePicker</item>
+        <item name="android:timePickerStyle">@style/Widget.MyApp.TimePicker</item>
+    </style>
+    <style name="OnlyTopRoundedIconButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="shapeAppearanceOverlay">@style/MyShapeAppearance</item>
+    </style>
+    <style name="OutlinedButtonWithIcon" parent="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingTop">@dimen/dialog_button_padding</item>
+        <item name="android:paddingBottom">@dimen/dialog_button_padding</item>
+        <item name="android:minHeight">@dimen/min_button_height</item>
+        <item name="iconPadding">-10.0dip</item>
+        <item name="iconTint">@color/yellowishOrange</item>
+        <item name="rippleColor">@color/yellowishOrange</item>
+        <item name="strokeColor">@color/yellowishOrange</item>
+    </style>
+    <style name="OverFlow" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_back_arrow</item>
+    </style>
+    <style name="SplashTheme" parent="@style/Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+    <style name="Theme.FullTransparent" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+    <style name="Theme.Transparent" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@color/transparentBlack</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+    <style name="Toolbar" parent="@style/ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColorPrimary">@color/yellowishOrange</item>
+        <item name="colorControlNormal">@color/yellowishOrange</item>
+        <item name="subtitleTextAppearance">@style/ToolbarSubtitleTheme</item>
+        <item name="titleTextAppearance">@style/ToolbarTitleTheme</item>
+    </style>
+    <style name="ToolbarSubtitleTheme" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">21.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/oxygen</item>
+    </style>
+    <style name="ToolbarTitleTheme" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/yellowishOrange</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/oxygen</item>
+    </style>
+    <style name="Widget.MyApp.TimePicker" parent="@android:style/Widget.Material.TimePicker">
+        <item name="android:timePickerMode">spinner</item>
+    </style>
+    <style name="chipText" parent="@style/TextAppearance.MaterialComponents.Chip">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:textColor">@color/lightGold</item>
+        <item name="android:fontFamily">@font/oxygen_bold</item>
+    </style>
+    <style name="font_family_thin">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <color name="black">#ff000000</color>
+    <color name="brownGrey">#ff7f7f7f</color>
+    <color name="clearBlue">#ff2a7bff</color>
+    <color name="colorAccent">#ffffab0f</color>
+    <color name="colorPrimary">#ff004835</color>
+    <color name="colorPrimaryDark">#ff003225</color>
+    <color name="colorPrimaryLight">#ffccdad6</color>
+    <color name="darkBlueGreen">@color/colorPrimary</color>
+    <color name="darkIceBlue">#ffcdece4</color>
+    <color name="dexpo_pink">#ffe8366a</color>
+    <color name="dialogTransparentBlack">#80323232</color>
+    <color name="disabled_gray">#ffcacaca</color>
+    <color name="divider">#ffcccccc</color>
+    <color name="divider_color">#1e000000</color>
+    <color name="error_red">#ffff3b30</color>
+    <color name="glideProgressBarColor">@color/colorAccent</color>
+    <color name="iceBlue">#fff2faf8</color>
+    <color name="info_blue">#ff007aff</color>
+    <color name="lightGold">#fffff2d9</color>
+    <color name="middleGold">#fff6ce7b</color>
+    <color name="orangeRed">#ffff430f</color>
+    <color name="orangeRed_30_percent">#4dff430f</color>
+    <color name="red_background">#ffed1b24</color>
+    <color name="rippleColor">#42003225</color>
+    <color name="sport_red">@color/orangeRed</color>
+    <color name="success_green">#ff4cd964</color>
+    <color name="teal">#ff00a076</color>
+    <color name="teal_30_percent">#4d00a076</color>
+    <color name="transparentBlack">#f2000000</color>
+    <color name="warning_orange">#ffff9500</color>
+    <color name="white">#ffffffff</color>
+    <color name="yellowishOrange">@color/colorAccent</color>
+    <integer name="slide">200</integer>
+    <item type="id" name="academicLayout" />
+    <item type="id" name="academicYearFragment" />
+    <item type="id" name="action_dexpoSubMenuFragment_to_webViewFragment" />
+    <item type="id" name="action_hakFragment_to_webViewFragment" />
+    <item type="id" name="action_happyChallengeFragment_to_screenSlidePagerFragment" />
+    <item type="id" name="action_homeFragment_to_dexpoSubMenuFragment" />
+    <item type="id" name="action_homeFragment_to_happyChallengeFragment" />
+    <item type="id" name="action_homeFragment_to_moodLevelUpgradeFragment2" />
+    <item type="id" name="action_homeFragment_to_profileFragment" />
+    <item type="id" name="action_homeFragment_to_rssListFragment" />
+    <item type="id" name="action_homeFragment_to_sportSubMenuFragment" />
+    <item type="id" name="action_homeFragment_to_webViewFragment" />
+    <item type="id" name="action_institutionListFragment_to_institutionDetailFragment" />
+    <item type="id" name="action_institutionListFragment_to_institutionMapViewFragment" />
+    <item type="id" name="action_institutionMapViewFragment_to_institutionDetailFragment" />
+    <item type="id" name="action_messagesFragment_to_webViewFragment" />
+    <item type="id" name="action_moodFaqFirstFragment_to_moodFaqSecondFragment" />
+    <item type="id" name="action_moodFaqSecondFragment_to_moodFaqThirdFragment" />
+    <item type="id" name="action_moodFaqThirdFragment_to_moodFaqFourthFragment" />
+    <item type="id" name="action_moodHolderFragment_to_moodLevelUpgradeFragment" />
+    <item type="id" name="action_moodStatisticsFragment_to_webViewFragment2" />
+    <item type="id" name="action_overEducationFragment_to_webViewFragment" />
+    <item type="id" name="action_phonebookFragment_to_employeeDetailFragment" />
+    <item type="id" name="action_sportSubMenuFragment_to_webViewFragment" />
+    <item type="id" name="action_studentScholarShipFragment_to_webViewFragment" />
+    <item type="id" name="action_welcomeUdCommunityFragment_to_wizardFragment" />
+    <item type="id" name="action_wizardFragment_to_chipSelectorFragment" />
+    <item type="id" name="action_wizardFragment_to_wizardFinishFragment" />
+    <item type="id" name="activity_mock" />
+    <item type="id" name="addToCalendarButton" />
+    <item type="id" name="addToTimeTableImageView" />
+    <item type="id" name="arrow_down" />
+    <item type="id" name="avatar_holder_rv" />
+    <item type="id" name="backToTopFab" />
+    <item type="id" name="beyond_training" />
+    <item type="id" name="bottom_sheet" />
+    <item type="id" name="bottom_sheet_indicator" />
+    <item type="id" name="businessHoursRv" />
+    <item type="id" name="cancel_filtering_button" />
+    <item type="id" name="checkBox" />
+    <item type="id" name="chip" />
+    <item type="id" name="chipItem" />
+    <item type="id" name="chipList" />
+    <item type="id" name="chipSelectorFragment" />
+    <item type="id" name="chip_icon" />
+    <item type="id" name="chip_selector_textview" />
+    <item type="id" name="circleProgress" />
+    <item type="id" name="circle_crop" />
+    <item type="id" name="clear_search" />
+    <item type="id" name="closeMapIcon" />
+    <item type="id" name="closeText" />
+    <item type="id" name="close_button" />
+    <item type="id" name="community_navigation_graph" />
+    <item type="id" name="contactFragment" />
+    <item type="id" name="contactWithDepartmentName" />
+    <item type="id" name="coursesInformationFragment" />
+    <item type="id" name="crop_image_menu_crop" />
+    <item type="id" name="crop_image_menu_flip" />
+    <item type="id" name="crop_image_menu_flip_horizontally" />
+    <item type="id" name="crop_image_menu_flip_vertically" />
+    <item type="id" name="crop_image_menu_rotate_left" />
+    <item type="id" name="crop_image_menu_rotate_right" />
+    <item type="id" name="custom_loading_imageView" />
+    <item type="id" name="day_bmi_layout" />
+    <item type="id" name="deleteAccountButton" />
+    <item type="id" name="departmentName" />
+    <item type="id" name="detailText" />
+    <item type="id" name="detail_holder" />
+    <item type="id" name="dexpoSubMenuFragment" />
+    <item type="id" name="done" />
+    <item type="id" name="dropDownEditText" />
+    <item type="id" name="dropdownForModuleName" />
+    <item type="id" name="econmicUnitsRv" />
+    <item type="id" name="economicUnitsHolder" />
+    <item type="id" name="edit" />
+    <item type="id" name="employeeDetailFragment" />
+    <item type="id" name="employeeDetails" />
+    <item type="id" name="emptySubTitleTextView" />
+    <item type="id" name="emptyTitleTextView" />
+    <item type="id" name="empty_item" />
+    <item type="id" name="empty_layout" />
+    <item type="id" name="empty_text" />
+    <item type="id" name="empty_title" />
+    <item type="id" name="emtpy_view_container" />
+    <item type="id" name="examsInformationFragment" />
+    <item type="id" name="facultiesChipGroup" />
+    <item type="id" name="fake_loading" />
+    <item type="id" name="faq_holder_rv" />
+    <item type="id" name="fillButton" />
+    <item type="id" name="filterList" />
+    <item type="id" name="filter_zone" />
+    <item type="id" name="finishRegistration" />
+    <item type="id" name="floatingActionButton" />
+    <item type="id" name="focus_thief" />
+    <item type="id" name="formButton" />
+    <item type="id" name="fragmentContainer" />
+    <item type="id" name="fragmentPager" />
+    <item type="id" name="gameEndedImage" />
+    <item type="id" name="gameEndedTitle" />
+    <item type="id" name="giftsList" />
+    <item type="id" name="hak" />
+    <item type="id" name="hakFragment" />
+    <item type="id" name="happyChallangeSwitch" />
+    <item type="id" name="happyChallengeFragment" />
+    <item type="id" name="happyChallengeSkipFragment" />
+    <item type="id" name="happy_challenge" />
+    <item type="id" name="hcGrid" />
+    <item type="id" name="headerImage" />
+    <item type="id" name="headerImageHolder" />
+    <item type="id" name="headerText" />
+    <item type="id" name="header_logo" />
+    <item type="id" name="homeFragment" />
+    <item type="id" name="icon_bg" />
+    <item type="id" name="imageRv" />
+    <item type="id" name="imageSliderVp" />
+    <item type="id" name="imageView" />
+    <item type="id" name="imageView2" />
+    <item type="id" name="imageView3" />
+    <item type="id" name="imageView4" />
+    <item type="id" name="impressum" />
+    <item type="id" name="inst_nav_host_fragment" />
+    <item type="id" name="instituteDetailLayout" />
+    <item type="id" name="instituteNameTextView" />
+    <item type="id" name="institutionDetailFragment" />
+    <item type="id" name="institutionListFragment" />
+    <item type="id" name="institutionMapViewFragment" />
+    <item type="id" name="institution_navigation_graph" />
+    <item type="id" name="interestsChipGroup" />
+    <item type="id" name="ipressum_menu" />
+    <item type="id" name="languagesChipGroup" />
+    <item type="id" name="levelUpgradeDesc" />
+    <item type="id" name="level_image" />
+    <item type="id" name="libraryFragment" />
+    <item type="id" name="librarySearchFragment" />
+    <item type="id" name="location" />
+    <item type="id" name="login" />
+    <item type="id" name="logout" />
+    <item type="id" name="mainIcon" />
+    <item type="id" name="mainMenuHolder" />
+    <item type="id" name="main_menu" />
+    <item type="id" name="majorDetailsFragment" />
+    <item type="id" name="map" />
+    <item type="id" name="map_search_item_button" />
+    <item type="id" name="markAsFriendButton" />
+    <item type="id" name="markerImageView" />
+    <item type="id" name="memberList" />
+    <item type="id" name="memberListFragment" />
+    <item type="id" name="menuItemHeader" />
+    <item type="id" name="menu_item_icon" />
+    <item type="id" name="menu_item_title" />
+    <item type="id" name="messageEt" />
+    <item type="id" name="messageList" />
+    <item type="id" name="messageText" />
+    <item type="id" name="message_icon" />
+    <item type="id" name="messagesFragment" />
+    <item type="id" name="mobileNetworkSwitch" />
+    <item type="id" name="moodFaqFirstFragment" />
+    <item type="id" name="moodFaqFourthFragment" />
+    <item type="id" name="moodFaqFragment" />
+    <item type="id" name="moodFaqSecondFragment" />
+    <item type="id" name="moodFaqThirdFragment" />
+    <item type="id" name="moodHistoryFragment" />
+    <item type="id" name="moodHolderFragment" />
+    <item type="id" name="moodImage" />
+    <item type="id" name="moodLevelUpgradeFragment" />
+    <item type="id" name="moodLevelUpgradeFragment2" />
+    <item type="id" name="moodList" />
+    <item type="id" name="moodRewardsFragment" />
+    <item type="id" name="moodStatisticsFragment" />
+    <item type="id" name="my_spinner_dropdown" />
+    <item type="id" name="name" />
+    <item type="id" name="nameEt" />
+    <item type="id" name="nameL" />
+    <item type="id" name="nameTv" />
+    <item type="id" name="nav_graph" />
+    <item type="id" name="nav_host_fragment" />
+    <item type="id" name="nav_logout" />
+    <item type="id" name="negativeButton" />
+    <item type="id" name="nextButton" />
+    <item type="id" name="notTakeView" />
+    <item type="id" name="oneWeek" />
+    <item type="id" name="overEducationFragment" />
+    <item type="id" name="phoneNumberEt" />
+    <item type="id" name="phonebookFragment" />
+    <item type="id" name="pointsTv" />
+    <item type="id" name="points_tv" />
+    <item type="id" name="positiveButton" />
+    <item type="id" name="prevButton" />
+    <item type="id" name="privacy" />
+    <item type="id" name="privacyPolicySwitch" />
+    <item type="id" name="profileFragment" />
+    <item type="id" name="profileImage" />
+    <item type="id" name="profileImageView" />
+    <item type="id" name="progressBar" />
+    <item type="id" name="progressText" />
+    <item type="id" name="progressView" />
+    <item type="id" name="progress_bar" />
+    <item type="id" name="progress_text" />
+    <item type="id" name="pushAll" />
+    <item type="id" name="pushOther" />
+    <item type="id" name="pushPromotion" />
+    <item type="id" name="pushStudentInformation" />
+    <item type="id" name="receivedGiftText" />
+    <item type="id" name="recyclerView" />
+    <item type="id" name="refreshImageView" />
+    <item type="id" name="registrationButton" />
+    <item type="id" name="rewardButton" />
+    <item type="id" name="rewards_rv" />
+    <item type="id" name="root" />
+    <item type="id" name="rootLayout" />
+    <item type="id" name="rootView" />
+    <item type="id" name="roundCardView" />
+    <item type="id" name="rssListFragment" />
+    <item type="id" name="screenSlidePagerFragment" />
+    <item type="id" name="searchBox" />
+    <item type="id" name="searchTextInputEditText" />
+    <item type="id" name="secondLabel" />
+    <item type="id" name="send_email_button" />
+    <item type="id" name="settingsFragment" />
+    <item type="id" name="shadow_view" />
+    <item type="id" name="show_map" />
+    <item type="id" name="simpleImageButton" />
+    <item type="id" name="simpleItemHolder" />
+    <item type="id" name="simpleListIcon" />
+    <item type="id" name="simpleitem_subtitle" />
+    <item type="id" name="sixtyDays" />
+    <item type="id" name="skipTextView" />
+    <item type="id" name="slideUpList" />
+    <item type="id" name="slide_up_container" />
+    <item type="id" name="slide_up_header" />
+    <item type="id" name="spinnerForModuleName" />
+    <item type="id" name="sportSubMenuFragment" />
+    <item type="id" name="start_filtering_button" />
+    <item type="id" name="studentScholarShipFragment" />
+    <item type="id" name="sub_menu" />
+    <item type="id" name="sub_menu_detail_holder" />
+    <item type="id" name="sub_menu_holder" />
+    <item type="id" name="sub_menu_holder_scv" />
+    <item type="id" name="sub_menu_icon" />
+    <item type="id" name="sub_menu_parent" />
+    <item type="id" name="sub_menu_text" />
+    <item type="id" name="subsamplingScaleImageView" />
+    <item type="id" name="summaryFragment" />
+    <item type="id" name="tabLayout" />
+    <item type="id" name="tab_dots" />
+    <item type="id" name="tab_layout" />
+    <item type="id" name="tabs" />
+    <item type="id" name="terms_of_use" />
+    <item type="id" name="terms_of_use_switch" />
+    <item type="id" name="textField" />
+    <item type="id" name="textView" />
+    <item type="id" name="textView10" />
+    <item type="id" name="textView11" />
+    <item type="id" name="textView2" />
+    <item type="id" name="textView3" />
+    <item type="id" name="textView4" />
+    <item type="id" name="textView5" />
+    <item type="id" name="textView6" />
+    <item type="id" name="textView7" />
+    <item type="id" name="textView8" />
+    <item type="id" name="textView9" />
+    <item type="id" name="thirtyDays" />
+    <item type="id" name="timeTableFragment" />
+    <item type="id" name="timeTableNavigationFragment" />
+    <item type="id" name="time_offset" />
+    <item type="id" name="time_zone" />
+    <item type="id" name="timezonelist" />
+    <item type="id" name="titleText" />
+    <item type="id" name="title_fragment" />
+    <item type="id" name="toolbar" />
+    <item type="id" name="topHolder" />
+    <item type="id" name="trainingList" />
+    <item type="id" name="twoWeek" />
+    <item type="id" name="user_menu" />
+    <item type="id" name="value" />
+    <item type="id" name="version_text" />
+    <item type="id" name="webView" />
+    <item type="id" name="webViewFragment" />
+    <item type="id" name="webViewFragment2" />
+    <item type="id" name="web_view" />
+    <item type="id" name="welcomeUdCommunityFragment" />
+    <item type="id" name="wizardFinishFragment" />
+    <item type="id" name="wizardFragment" />
+    <item type="id" name="wizard_nav_graph" />
+    <item type="id" name="zoomableImageContainer" />
+    <attr name="tintColorStateList" format="reference|color" />
+</resources>

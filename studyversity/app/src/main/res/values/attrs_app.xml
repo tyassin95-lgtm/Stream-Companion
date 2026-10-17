@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleProgress">
+        <attr name="progress" />
+    </declare-styleable>
+    <declare-styleable name="MaxHeightScrollView">
+        <attr name="maxHeight" />
+    </declare-styleable>
+    <declare-styleable name="TintableImageView">
+        <attr name="tintColorStateList" />
+    </declare-styleable>
+</resources>

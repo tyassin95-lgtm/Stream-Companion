@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/empty_layout" android:tag="layout/list_empty_layout_0" android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:id="@id/emptyTitleTextView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sadly_no_search_result" android:textAllCaps="true" android:textAlignment="center" style="@style/AppTheme.Text.H2" />
+    <TextView android:id="@id/emptySubTitleTextView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/didnt_you_write_something" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+    <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" app:srcCompat="@drawable/search_no_result" />
+</LinearLayout>

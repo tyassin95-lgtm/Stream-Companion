@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:tag="layout/win_campus_card_0" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:backgroundTint="@android:color/transparent" app:cardCornerRadius="0.0dip" app:cardElevation="0.0dip">
+        <FrameLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="80.0dip" android:layout_marginTop="15.0dip" android:backgroundTint="@color/darkIceBlue" app:cardCornerRadius="20.0dip" app:cardElevation="0.0dip">
+                <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/darkBlueGreen" android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/mood_win_campus_label" android:fontFamily="@font/oxygen_bold" android:paddingStart="10.0dip" android:paddingEnd="10.0dip" android:layout_marginEnd="120.0dip" />
+            </androidx.cardview.widget.CardView>
+            <ImageView android:layout_gravity="end" android:layout_width="157.0dip" android:layout_height="95.0dip" android:src="@drawable/win_campus_1" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

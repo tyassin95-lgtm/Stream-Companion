@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/default_activity_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_10dp" android:hint="@string/name" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText android:id="@id/nameEt" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_10dp" android:hint="@string/phone_number" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText android:id="@id/phoneNumberEt" android:layout_width="fill_parent" android:layout_height="wrap_content" android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_margin="@dimen/_10dp" android:hint="@string/message" android:layout_weight="1.0" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText android:gravity="start|center|top" android:id="@id/messageEt" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button android:id="@id/send_email_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_10dp" android:text="@string/send" app:icon="@drawable/ic_search" app:iconPadding="-25.0dip" style="@style/DefaultOrangeButton" />
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/default_activity_bg" android:padding="@dimen/_10dp" android:fitsSystemWindows="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/imageView" android:layout_width="fill_parent" android:layout_height="0.0dip" android:src="@drawable/ic_kozosseg_illu" android:layout_weight="1.0" />
+    <TextView android:id="@id/textView6" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ud_community_welcome_title" style="@style/AppTheme.Text.H2" />
+    <TextView android:id="@id/textView7" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ud_community_welcome_description" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+    <com.google.android.material.button.MaterialButton android:id="@id/registrationButton" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ud_community_button_title" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" app:cornerRadius="8.0dip" app:icon="@drawable/ic_user_plus" app:iconPadding="-25.0dip" style="@style/DefaultOrangeButton" />
+</LinearLayout>

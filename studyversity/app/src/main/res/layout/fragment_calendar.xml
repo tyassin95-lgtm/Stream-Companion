@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:tag="layout/fragment_calendar_0" android:background="@color/iceBlue" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/moodList" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <TextView android:textStyle="bold" android:textColor="@color/colorPrimary" android:gravity="center" android:id="@id/empty_text" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_mood_answer_yet" style="@style/AppTheme.Text.H1" />
+</FrameLayout>

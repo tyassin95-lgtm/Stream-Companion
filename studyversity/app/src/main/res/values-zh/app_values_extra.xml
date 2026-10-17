@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="crop_image_activity_no_permissions">正在取消，该操作未获得所需权限。</string>
+    <string name="crop_image_activity_title" />
+    <string name="pick_image_intent_chooser_title">选择来源</string>
+</resources>

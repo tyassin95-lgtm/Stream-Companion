@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation android:id="@+id/institution_navigation_graph" app:startDestination="@+id/institutionListFragment"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <fragment android:name="hu.unideb.studyversity.ui.university_matters.university_locale.InstitutionListFragment" android:id="@+id/institutionListFragment" />
+    <fragment android:name="hu.unideb.studyversity.ui.university_matters.university_locale.details.InstitutionDetailFragment" android:id="@+id/institutionDetailFragment" />
+    <fragment android:name="hu.unideb.studyversity.ui.university_matters.university_locale.map_view.InstitutionMapViewFragment" android:id="@+id/institutionMapViewFragment" />
+</navigation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="top" android:orientation="vertical" android:tag="layout/title_and_label_view_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textStyle="bold" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="textStart" style="@style/AppTheme.Text.H6" />
+    <TextView android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/AppTheme.Text.P" />
+</LinearLayout>

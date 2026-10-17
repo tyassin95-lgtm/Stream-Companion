@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:tag="layout/questionnaire_fragment_0" android:background="@color/iceBlue" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/defaultMargin" android:paddingEnd="@dimen/defaultMargin"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/imageView4" android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_marginTop="30.0dip" android:src="@drawable/image_questionnaire" android:layout_weight="1.0" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="0.0dip" android:text="@string/please_fill_the_questionnaire" android:textAlignment="center" style="@style/AppTheme.Text.Title" />
+        <Button android:id="@id/fillButton" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/i_fill" android:drawableLeft="@drawable/ic_pen" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" app:iconPadding="-30.0dip" style="@style/DefaultOrangeButton" />
+        <TextView android:textSize="14.0sp" android:textStyle="normal" android:textColor="@color/yellowishOrange" android:gravity="center_horizontal" android:id="@id/skipTextView" android:background="@color/iceBlue" android:paddingTop="15.0dip" android:paddingBottom="15.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/skip" />
+    </LinearLayout>
+</LinearLayout>

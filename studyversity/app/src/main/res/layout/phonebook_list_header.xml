@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:tag="layout/phonebook_list_header_0" android:background="@drawable/default_activity_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/header_logo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_16dp" app:srcCompat="@drawable/phonebook_list_header_image" />
+    <View android:id="@id/focus_thief" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="1.0dip" android:layout_height="1.0dip" />
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_10dp" android:hint="@string/search" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText android:id="@id/searchTextInputEditText" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:inputType="text" android:imeOptions="actionSearch" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout android:layout_gravity="start" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="10.0dip" android:layout_marginEnd="10.0dip">
+        <Button android:id="@id/map_search_item_button" android:tag="binding_2" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/search" android:layout_weight="1.0" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" app:icon="@drawable/ic_search" app:iconPadding="-25.0dip" style="@style/DefaultOrangeButton" />
+    </LinearLayout>
+</LinearLayout>

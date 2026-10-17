@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string-array name="backup_country_names">
+        <item>Άγιος Μαρτίνος</item>
+        <item>Μπονέρ, Σεντ Γιουστέσιους, Σάμπα</item>
+        <item>Κουρασάο</item>
+        <item>Νότιο Σουδάν</item>
+    </string-array>
+    <string-array name="timezone_rename_labels">
+        <item>Κεντρική Αυστραλίας - NT</item>
+        <item>Κεντρική Αυστραλίας - SA</item>
+        <item>Ανατολικής Αυστραλίας - QLD</item>
+        <item>Ανατολικής Αυστραλίας - NSW</item>
+        <item>Ορεινή χειμερινή ώρα - Ντόσον Κρικ</item>
+        <item>Κεντρική χειμερινή - Σασκάτσουαν</item>
+        <item>Ανατολική χειμερινή - Ατικόκαν</item>
+        <item>Χειμερινή Ατλαντικού - Κεμπέκ</item>
+        <item>Χαβάης-Αλεούτιων νήσων - Χαβάη</item>
+        <item>Χαβάης-Αλεούτιων νήσων - Αλάσκα</item>
+        <item>Χειμερινή Ειρηνικού - Μετλακάτλα</item>
+        <item>Ορεινή χειμερινή ώρα - Αριζόνα</item>
+        <item>Ειρηνικού - Μπάχα Καλιφόρνια</item>
+        <item>Ορεινή - Τσιουάουα</item>
+        <item>Κεντρική - Ταμαουλίπας</item>
+        <item>Ορεινή - Σονόρα</item>
+        <item>Ώρα Ανατολικής Αφρικής</item>
+        <item>Χειμερινή ώρα Ατλαντικού</item>
+        <item>Χειμερινή ώρα Ατλαντικού</item>
+        <item>Ώρα Ανατολικής Ευρώπης</item>
+        <item>Ώρα Καλίνινγκραντ</item>
+        <item>Αμαζόνας - Ροντόνια</item>
+        <item>Μπραζίλια - Παρά</item>
+    </string-array>
+    <string name="btn_cancel">Ακύρωση</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_yes">Ναι</string>
+    <string name="hint_time_zone_search">Εισαγάγετε όνομα χώρας</string>
+    <string name="lbl_choose_from_gallery">Επιλογή φωτογραφίας</string>
+    <string name="lbl_take_photo">Λήψη φωτογραφίας</string>
+    <string name="no_results_found">Δεν βρέθηκαν αποτελέσματα</string>
+    <string name="palestine_display_name">Παλαιστίνη</string>
+    <string name="searchview_description_clear">Διαγραφή ερωτήματος</string>
+</resources>

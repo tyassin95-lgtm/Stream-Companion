@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:background="@color/iceBlue" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <WebView android:textAppearance="?android:textAppearanceMedium" android:scrollbarStyle="insideOverlay" android:id="@id/web_view" android:padding="@dimen/_10dp" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="10.0dip" app:layout_constrainedHeight="true" />
+        <View android:background="@drawable/trasnparent_activity_bg" android:layout_width="fill_parent" android:layout_height="20.0dip" />
+        <LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/empty_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:id="@id/emptyTitleTextView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/oops_label" android:textAllCaps="true" android:textAlignment="center" style="@style/AppTheme.Text.H2" />
+            <TextView android:id="@id/emptySubTitleTextView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/webview_error" android:textAlignment="center" android:paddingStart="5.0dip" android:paddingEnd="5.0dip" style="@style/AppTheme.Text.P" />
+            <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" app:srcCompat="@drawable/search_no_result" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

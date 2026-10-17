@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- time table → device calendar -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <queries>
+        <!-- "open profile in the Facebook app" checks -->
+        <package android:name="com.facebook.katana" />
+        <package android:name="com.facebook.lite" />
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".StudyversityApp"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:configChanges="layoutDirection|locale"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.user.login.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.FullTransparent" />
+
+        <activity android:name=".utils.image.ImageShowActivity" android:exported="false" android:theme="@style/Theme.Transparent" />
+        <activity android:name=".utils.image.ImageSlideShowActivity" android:exported="false" android:theme="@style/Theme.Transparent" />
+        <activity android:name=".ui.webview.WebViewActivity" android:exported="false" android:theme="@style/Theme.Transparent" />
+
+        <activity android:name=".ui.university_matters.university_locale.InstitutionListActivity" android:exported="false" />
+
+        <!-- UD Community -->
+        <activity android:name=".ui.community.CommunityActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.community.wizard.WizardContainerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.community.wizard.ChipSelectorActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".ui.community.selfview.SelfProfileDisplayAndEditActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.community.member_detail.MemberDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!-- My mood / Happy Challenge -->
+        <activity android:name=".ui.mood.ActivityMoodHolder" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".ui.happy_challenge.HappyChallengeActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".ui.mood.levelUpgrade.ActivityMoodLevelUpgrade" android:exported="false" android:theme="@style/Theme.Transparent" />
+        <activity android:name=".ui.mood.gameEnded.ActivityMoodGameEnded" android:exported="false" android:theme="@style/Theme.Transparent" />
+        <activity android:name=".ui.mood.form.ActivityMoodForm" android:exported="false" android:theme="@style/Theme.Transparent" />
+    </application>
+</manifest>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:tag="layout/employee_detail_profile_buttons_item_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@+id/tudosterButton" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/tudoster_profil" app:icon="@drawable/ic_user_circle" style="@style/OutlinedButtonWithIcon" />
+        <Button android:id="@+id/odtButton" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/odt_profil" app:icon="@drawable/ic_user_circle" style="@style/OutlinedButtonWithIcon" />
+        <Button android:id="@+id/websiteButton" android:tag="binding_3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/organization_website" app:icon="@drawable/ic_globe" style="@style/OutlinedButtonWithIcon" />
+        <Button android:id="@+id/ownWebButton" android:tag="binding_4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/webpage" app:icon="@drawable/ic_globe" style="@style/OutlinedButtonWithIcon" />
+    </LinearLayout>
+</ScrollView>

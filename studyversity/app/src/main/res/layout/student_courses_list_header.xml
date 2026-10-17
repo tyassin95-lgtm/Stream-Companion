@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:tag="layout/student_courses_list_header_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/dropDownEditText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_10dp" android:dropDownSelector="@drawable/orange_selector" app:endIconTint="@color/colorAccent" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView android:id="@id/my_spinner_dropdown" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/semester" android:editable="false" android:dropDownSelector="@drawable/orange_selector" android:inputType="none" android:dropDownAnchor="@id/dropDownEditText" android:dropDownHeight="200.0dip" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/dropdownForModuleName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_10dp" android:dropDownSelector="@drawable/orange_selector" app:endIconTint="@color/colorAccent" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView android:id="@id/spinnerForModuleName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/module" android:editable="false" android:dropDownSelector="@drawable/orange_selector" android:inputType="none" android:dropDownAnchor="@id/dropdownForModuleName" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_19dp" android:layout_marginBottom="@dimen/_10dp" android:text="@string/courses" android:textAllCaps="true" android:textAlignment="textStart" android:layout_marginStart="@dimen/_10dp" style="@style/AppTheme.Text.H4" />
+</LinearLayout>

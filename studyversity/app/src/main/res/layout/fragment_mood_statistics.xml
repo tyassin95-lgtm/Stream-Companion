@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:tag="layout/fragment_mood_statistics_0" android:background="@color/iceBlue" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:backgroundTint="@color/iceBlue">
+        <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:backgroundTint="#fff8dca9" app:cardCornerRadius="20.0dip">
+            <LinearLayout android:orientation="vertical" android:paddingTop="20.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="20.0dip" android:paddingEnd="20.0dip">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <TextView android:id="@+id/pointsTitle" android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/darkBlueGreen" android:tag="binding_2" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:fontFamily="@font/oxygen_bold" />
+                    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/darkBlueGreen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mood_points" android:fontFamily="@font/oxygen_bold" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/green_profile" />
+                    <TextView android:id="@+id/userNameText" android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/darkBlueGreen" android:tag="binding_3" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:textAllCaps="true" android:fontFamily="@font/oxygen_bold" android:layout_marginStart="10.0dip" />
+                    <androidx.cardview.widget.CardView android:id="@id/roundCardView" android:layout_width="20.0dip" android:layout_height="20.0dip" android:rotation="20.0" android:elevation="0.0dip" app:cardCornerRadius="20.0dip">
+                        <ImageView android:layout_gravity="center" android:id="@id/level_image" android:layout_width="15.0dip" android:layout_height="15.0dip" />
+                    </androidx.cardview.widget.CardView>
+                    <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/darkBlueGreen" android:id="@id/points_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/oxygen_bold" android:layout_marginStart="10.0dip" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <com.google.android.material.chip.Chip android:textAppearance="@style/chipText" android:textColor="@color/colorAccent" android:id="@id/chip" android:tag="binding_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/oxygen_bold" app:chipBackgroundColor="@color/darkBlueGreen" app:chipIcon="@drawable/mood_star" app:iconStartPadding="5.0dip" />
+                    <LinearLayout android:gravity="center" android:orientation="vertical" android:paddingTop="12.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="10.0dip">
+                        <ProgressBar android:id="@id/progress_bar" android:layout_width="fill_parent" android:layout_height="5.0dip" android:max="100" android:progressDrawable="@drawable/mood_progress" style="?android:progressBarStyleHorizontal" />
+                        <LinearLayout android:gravity="center" android:orientation="horizontal" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <TextView android:id="@+id/progressLeftText" android:textSize="11.0sp" android:textColor="@color/darkBlueGreen" android:tag="binding_5" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:fontFamily="@font/oxygen" />
+                            <TextView android:id="@+id/progressRightText" android:textSize="11.0sp" android:textColor="@color/darkBlueGreen" android:tag="binding_6" android:layout_width="wrap_content" android:layout_height="fill_parent" android:fontFamily="@font/oxygen_bold" android:layout_marginEnd="5.0dip" />
+                            <ImageButton android:id="@id/simpleImageButton" android:tag="binding_7" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mood_help" android:adjustViewBounds="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/win_campus_card" />
+        <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/faq_holder_rv" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:overScrollMode="never" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

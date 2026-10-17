@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:tag="layout/summary_fragment_0" android:background="@color/iceBlue" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <TextView android:id="@+id/restartedText" android:textColor="@color/orangeRed" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_20dp" android:text="@string/mood_game_restarted_and_reawrd_not_collected" android:textAlignment="center" android:layout_marginStart="@dimen/_10dp" android:layout_marginEnd="@dimen/_10dp" style="@style/AppTheme.Text.H2" />
+            <TextView android:textColor="@color/darkBlueGreen" android:id="@id/headerText" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_20dp" android:textAllCaps="true" android:textAlignment="textStart" android:layout_marginStart="@dimen/_10dp" android:layout_marginEnd="@dimen/_10dp" style="@style/AppTheme.Text.H2" />
+            <androidx.cardview.widget.CardView android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="@dimen/happy_challenge_answer_height" android:layout_margin="10.0dip" android:layout_marginBottom="@dimen/defaultMargin" android:foreground="?selectableItemBackgroundBorderless" android:minHeight="60.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp">
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <ImageView android:paddingTop="10.0dip" android:paddingBottom="0.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_hc_mood_great" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" />
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                        <TextView android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/hc_great" android:layout_weight="1.0" android:layout_marginStart="10.0dip" android:layout_marginEnd="5.0dip" style="@style/AppTheme.Text.H2" />
+                        <TextView android:id="@+id/greatCount" android:tag="binding_3" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:textAlignment="center" android:layout_marginStart="10.0dip" android:layout_marginEnd="5.0dip" style="@style/AppTheme.Text.Title" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="@dimen/happy_challenge_answer_height" android:layout_margin="10.0dip" android:layout_marginBottom="@dimen/defaultMargin" android:foreground="?selectableItemBackgroundBorderless" android:minHeight="60.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp">
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <ImageView android:paddingTop="10.0dip" android:paddingBottom="0.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_hc_mood_normal" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" />
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                        <TextView android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/hc_normal" android:layout_weight="1.0" android:layout_marginStart="10.0dip" android:layout_marginEnd="5.0dip" style="@style/AppTheme.Text.H2" />
+                        <TextView android:id="@+id/normalCount" android:tag="binding_4" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:textAlignment="center" android:layout_marginStart="10.0dip" android:layout_marginEnd="5.0dip" style="@style/AppTheme.Text.Title" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="@dimen/happy_challenge_answer_height" android:layout_margin="10.0dip" android:layout_marginBottom="@dimen/defaultMargin" android:foreground="?selectableItemBackgroundBorderless" android:minHeight="60.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp">
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <ImageView android:paddingTop="10.0dip" android:paddingBottom="0.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_hc_mood_bad" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" />
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                        <TextView android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/hc_bad" android:layout_weight="1.0" android:layout_marginStart="10.0dip" android:layout_marginEnd="5.0dip" style="@style/AppTheme.Text.H2" />
+                        <TextView android:id="@+id/badCount" android:tag="binding_5" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:textAlignment="center" android:layout_marginStart="10.0dip" android:layout_marginEnd="5.0dip" style="@style/AppTheme.Text.Title" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <hu.unideb.studyversity.utils.SquareCardView android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp" android:layout_weight="1.0" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/oneWeek" android:background="@drawable/selector_viewgroup_orange" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <TextView android:textColor="@drawable/selector_viewgroup_child_textcolor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_5dp" android:text="@string/past" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+                    <TextView android:textStyle="bold" android:textColor="@drawable/selector_viewgroup_child_textcolor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/one_week" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+                </LinearLayout>
+            </hu.unideb.studyversity.utils.SquareCardView>
+            <hu.unideb.studyversity.utils.SquareCardView android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp" android:layout_weight="1.0" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/twoWeek" android:background="@drawable/selector_viewgroup_orange" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <TextView android:textColor="@drawable/selector_viewgroup_child_textcolor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_5dp" android:text="@string/past" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+                    <TextView android:textStyle="bold" android:textColor="@drawable/selector_viewgroup_child_textcolor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/two_weeks" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+                </LinearLayout>
+            </hu.unideb.studyversity.utils.SquareCardView>
+            <hu.unideb.studyversity.utils.SquareCardView android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp" android:layout_weight="1.0" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/thirtyDays" android:background="@drawable/selector_viewgroup_orange" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <TextView android:textColor="@drawable/selector_viewgroup_child_textcolor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_5dp" android:text="@string/past" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+                    <TextView android:textStyle="bold" android:textColor="@drawable/selector_viewgroup_child_textcolor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/thirty_days" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+                </LinearLayout>
+            </hu.unideb.studyversity.utils.SquareCardView>
+            <hu.unideb.studyversity.utils.SquareCardView android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp" android:layout_weight="1.0" android:layout_marginStart="5.0dip" android:layout_marginEnd="@dimen/_10dp" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp" style="@style/MenuItemOrange">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/sixtyDays" android:background="@drawable/selector_viewgroup_orange" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <TextView android:textColor="@drawable/selector_viewgroup_child_textcolor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_5dp" android:text="@string/past" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+                    <TextView android:textStyle="bold" android:textColor="@drawable/selector_viewgroup_child_textcolor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sixty_days" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+                </LinearLayout>
+            </hu.unideb.studyversity.utils.SquareCardView>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:tag="layout/slide_up_list_item_0" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/menuItemHeader" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <View android:id="@id/slide_up_container" android:layout_width="fill_parent" android:layout_height="@dimen/listItemMinHeight" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/slide_up_header" android:tag="binding_1" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/manu_list_header_default_height" android:paddingStart="@dimen/sub_menu_item_start_padding" android:paddingEnd="@dimen/sub_menu_item_end_padding">
+            <ImageView android:id="@+id/headerIcon" android:tag="binding_2" android:layout_width="40.0dip" android:layout_height="fill_parent" android:scaleType="center" />
+            <TextView android:gravity="center_vertical" android:id="@id/name" android:tag="binding_3" android:layout_width="0.0dip" android:layout_height="fill_parent" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="@dimen/sub_menu_title_start_padding" style="@style/AppTheme.Text.H2" />
+        </LinearLayout>
+    </FrameLayout>
+    <ScrollView android:id="@id/sub_menu_holder_scv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true">
+        <LinearLayout android:orientation="vertical" android:id="@id/detail_holder" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </ScrollView>
+</LinearLayout>

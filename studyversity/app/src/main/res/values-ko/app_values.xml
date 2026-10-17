@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="crop_image_menu_crop">자르기</string>
+    <string name="crop_image_menu_flip">반전</string>
+    <string name="crop_image_menu_flip_horizontally">좌우반전</string>
+    <string name="crop_image_menu_flip_vertically">상하반전</string>
+    <string name="crop_image_menu_rotate_left">반시계 회전</string>
+    <string name="crop_image_menu_rotate_right">회전</string>
+</resources>

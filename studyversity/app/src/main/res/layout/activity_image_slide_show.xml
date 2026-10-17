@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:tag="layout/activity_image_slide_show_0" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.viewpager2.widget.ViewPager2 android:id="@id/imageSliderVp" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <Button android:textSize="14.0sp" android:textColor="@color/yellowishOrange" android:id="@id/closeText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_19dp" android:text="@string/close" android:drawableLeft="@drawable/ic_close" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/Widget.MaterialComponents.Button.TextButton.Icon" />
+</RelativeLayout>

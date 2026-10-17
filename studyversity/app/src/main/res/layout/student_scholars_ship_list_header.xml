@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:tag="layout/student_scholars_ship_list_header_0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/defaultMargin" android:layout_marginBottom="@dimen/_19dp" android:text="@string/student_scholar_ship_title" style="@style/AppTheme.Text.P"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

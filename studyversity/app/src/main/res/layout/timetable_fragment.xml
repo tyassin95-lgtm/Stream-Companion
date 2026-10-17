@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="start" android:orientation="vertical" android:tag="layout/timetable_fragment_0" android:background="@drawable/default_activity_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/trainingList" android:paddingBottom="@dimen/add_to_calendar_height" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:overScrollMode="never" />
+    <Button android:textColor="@color/black" android:layout_gravity="bottom|center" android:id="@id/addToCalendarButton" android:layout_width="fill_parent" android:layout_height="@dimen/add_to_calendar_height" android:text="@string/add_all_to_calendar" android:insetBottom="0.0dip" android:textAlignment="center" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" android:backgroundTint="@color/yellowishOrange" app:elevation="0.0dip" app:icon="@drawable/ic_time_table" app:iconPadding="-10.0dip" app:iconTint="@color/black" app:rippleColor="@color/white" style="@style/OnlyTopRoundedIconButton" />
+    <include android:id="@id/empty_layout" android:visibility="gone" layout="@layout/need_sync_layout" />
+</FrameLayout>

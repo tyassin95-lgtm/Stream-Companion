@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:tag="layout/student_scholars_ship_list_item_0" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/defaultMargin" android:layout_marginBottom="15.0dip" android:minHeight="60.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="60.0dip" android:paddingStart="@dimen/_16dp" android:paddingEnd="@dimen/sub_menu_item_end_padding" style="@style/MenuItemOrange">
+        <TextView android:id="@+id/scholarshipName" android:textSize="14.0sp" android:textStyle="bold" android:textColor="@drawable/selector_viewgroup_child_textcolor_colorprimary" android:tag="binding_1" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <hu.unideb.studyversity.utils.TintableImageView android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/ic_info_circle" android:scaleType="center" app:tintColorStateList="@drawable/icon_selector_orange_inverse" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

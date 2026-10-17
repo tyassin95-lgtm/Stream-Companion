@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string-array name="backup_country_names">
+        <item>Синт-Мартен</item>
+        <item>Карибские Нидерланды</item>
+        <item>Кюрасао</item>
+        <item>Южный Судан</item>
+    </string-array>
+    <string-array name="timezone_rename_labels">
+        <item>Центр. Австралия – Сев. терр.</item>
+        <item>Центр. Австралия – Юж. Австралия</item>
+        <item>Восточная Австралия – Квинсленд</item>
+        <item>Вост. Австралия – Нов. Юж. Уэльс</item>
+        <item>Горное стандартное – Досон-Крик</item>
+        <item>Средне-амер. станд. – Саскачеван</item>
+        <item>Восточно-амер. станд. – Атикокан</item>
+        <item>Атлантическое станд. – Квебек</item>
+        <item>Гавайи и Алеуты – Гавайские о-ва</item>
+        <item>Гавайи и Алеуты – Аляска</item>
+        <item>Тихоокеанск. станд. – Метлакатла</item>
+        <item>Горное стандартное – Аризона</item>
+        <item>Тихоокеанское – Нижн. Калифорния</item>
+        <item>Горное – Чиуауа</item>
+        <item>Центральное – Тамаулипас</item>
+        <item>Горное – Сонора</item>
+        <item>Восточноафриканское время</item>
+        <item>Атлантическое стандартное время</item>
+        <item>Атлантическое стандартное время</item>
+        <item>Восточноевропейское время</item>
+        <item>Время Калининграда</item>
+        <item>Амазонское – Рондония</item>
+        <item>Бразилия – Пара</item>
+    </string-array>
+    <string name="btn_cancel">Отмена</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_yes">Да</string>
+    <string name="crop_image_menu_crop">Обрезать</string>
+    <string name="crop_image_menu_flip">Отразить</string>
+    <string name="crop_image_menu_flip_horizontally">Отразить по горизонтали</string>
+    <string name="crop_image_menu_flip_vertically">Отразить по вертикали</string>
+    <string name="crop_image_menu_rotate_left">Повернуть налево</string>
+    <string name="crop_image_menu_rotate_right">Повернуть направо</string>
+    <string name="hint_time_zone_search">Введите название страны</string>
+    <string name="lbl_choose_from_gallery">Выбрать фотографию</string>
+    <string name="lbl_take_photo">Сделать фотографию</string>
+    <string name="no_results_found">Ничего не найдено</string>
+    <string name="palestine_display_name">Палестина</string>
+    <string name="searchview_description_clear">Удалить запрос</string>
+</resources>

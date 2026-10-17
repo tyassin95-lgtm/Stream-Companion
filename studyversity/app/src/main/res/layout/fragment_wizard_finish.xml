@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom|center" android:orientation="vertical" android:background="@drawable/default_activity_bg" android:paddingTop="10.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/_10dp" android:paddingEnd="@dimen/_10dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:id="@id/textView6" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wizard_finish_title" android:textAllCaps="true" style="@style/AppTheme.Text.H2" />
+    <TextView android:id="@id/textView7" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wizard_finish_msg" android:textAlignment="center" style="@style/AppTheme.Text.P" />
+    <com.google.android.material.button.MaterialButton android:id="@id/finishRegistration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wizard_finish_button_label" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" app:cornerRadius="8.0dip" app:icon="@drawable/ic_share" style="@style/DefaultOrangeButton" />
+    <ImageView android:id="@id/imageView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/ic_img_team" />
+</LinearLayout>

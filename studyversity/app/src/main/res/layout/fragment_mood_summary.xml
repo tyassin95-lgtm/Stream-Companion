@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:tag="layout/fragment_mood_summary_0" android:layout_width="fill_parent" android:layout_height="fill_parent" android:backgroundTint="@color/iceBlue"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/textView9" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="History" android:textAlignment="center" />
+</LinearLayout>

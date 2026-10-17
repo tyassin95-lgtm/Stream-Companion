@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:tag="layout/time_table_list_item_0" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_marginBottom="@dimen/defaultMargin" android:minHeight="60.0dip" app:cardCornerRadius="@dimen/list_card_corder_radius" app:cardElevation="@dimen/_5dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="@dimen/timeTableListItemMinHeight">
+        <LinearLayout android:gravity="top" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <TextView android:id="@+id/timeText" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="textStart" style="@style/AppTheme.Text.P" />
+            <TextView android:id="@+id/subjectText" android:textStyle="bold" android:ellipsize="end" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="textStart" style="@style/AppTheme.Text.P" />
+            <TextView android:id="@+id/roomText" android:tag="binding_3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="textStart" style="@style/AppTheme.Text.P" />
+        </LinearLayout>
+        <ImageView android:id="@id/addToTimeTableImageView" android:background="?selectableItemBackgroundBorderless" android:padding="5.0dip" android:focusable="true" android:clickable="true" android:layout_width="40.0dip" android:layout_height="fill_parent" app:srcCompat="@drawable/timetable_imageview_selector" />
+        <ImageView android:id="@id/markerImageView" android:tag="binding_4" android:background="?selectableItemBackgroundBorderless" android:padding="5.0dip" android:focusable="true" android:clickable="true" android:layout_width="40.0dip" android:layout_height="fill_parent" app:srcCompat="@drawable/map_marker_imageview_selector" app:tint="@color/yellowishOrange" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

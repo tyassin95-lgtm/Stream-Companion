@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="end" android:layout_gravity="end" android:orientation="vertical" android:background="@drawable/default_activity_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="40.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.button.MaterialButton android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/darkBlueGreen" android:id="@id/close_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/close" android:insetTop="0.0dip" android:insetBottom="0.0dip" android:layout_marginEnd="10.0dip" style="@style/Widget.MaterialComponents.Button.TextButton" />
+    <WebView android:id="@id/webView" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

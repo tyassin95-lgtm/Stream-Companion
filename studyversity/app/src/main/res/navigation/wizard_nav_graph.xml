@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation android:id="@+id/wizard_nav_graph" app:startDestination="@+id/welcomeUdCommunityFragment"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <fragment android:name="hu.unideb.studyversity.ui.community.wizard.WelcomeUdCommunityFragment" android:id="@+id/welcomeUdCommunityFragment">
+        <action android:id="@+id/action_welcomeUdCommunityFragment_to_wizardFragment" app:destination="@id/wizardFragment" app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left" app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment android:name="hu.unideb.studyversity.ui.community.wizard.WizardFragment" android:id="@+id/wizardFragment">
+        <action android:id="@+id/action_wizardFragment_to_wizardFinishFragment" app:destination="@id/wizardFinishFragment" app:enterAnim="@anim/slide_in_right" app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment android:name="hu.unideb.studyversity.ui.community.wizard.WizardFinishFragment" android:id="@+id/wizardFinishFragment" />
+    <fragment android:name="hu.unideb.studyversity.ui.community.wizard.ChipSelectorFragment" android:id="@+id/chipSelectorFragment" />
+</navigation>

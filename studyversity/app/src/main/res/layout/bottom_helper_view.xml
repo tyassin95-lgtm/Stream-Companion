@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/bottom_sheet" android:tag="layout/bottom_helper_view_0" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true" app:behavior_hideable="true" app:behavior_peekHeight="@dimen/bottom_sheet_peek_height" app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/topHolder" android:padding="@dimen/_16dp" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:id="@+id/helperTitle" android:gravity="center" android:tag="binding_1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="2.0" style="@style/AppTheme.Text.H3" />
+        <ImageView android:id="@id/bottom_sheet_indicator" android:layout_width="40.0dip" android:layout_height="fill_parent" android:src="@drawable/ic_arrow_up" android:scaleType="fitCenter" android:layout_weight="1.0" />
+    </LinearLayout>
+    <TextView android:gravity="center" android:id="@id/detailText" android:tag="binding_2" android:padding="@dimen/_16dp" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/AppTheme.Text.P" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:tag="layout/employee_detail_fragment_0" android:background="@drawable/default_activity_bg" android:paddingTop="@dimen/_10dp" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/nameTv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/_10dp" android:paddingEnd="@dimen/_10dp" style="@style/AppTheme.Text.Title" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/employeeDetails" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@id/root" android:tag="layout/mood_faq_item_0" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:backgroundTint="@color/middleGold" app:cardCornerRadius="20.0dip" app:cardElevation="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@+id/faqImage" android:layout_gravity="end" android:tag="binding_1" android:layout_width="45.0dip" android:layout_height="36.0dip" android:contentDescription="@string/app_name" />
+        <ImageView android:fitsSystemWindows="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_arrow_right" android:scaleType="center" android:contentDescription="@string/app_name" app:tint="@color/darkBlueGreen" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/darkBlueGreen" android:id="@id/textView11" android:tag="binding_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="@font/oxygen_bold" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
