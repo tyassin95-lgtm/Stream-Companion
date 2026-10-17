@@ -6,6 +6,9 @@ import hu.unideb.studyversity.R
 import hu.unideb.studyversity.core.Formats
 import java.util.Date
 
+const val ROLE_STUDENT = "STUDENT"
+const val ROLE_INSTRUCTOR = "INSTRUCTOR"
+
 /** Models mirror the JSON value objects of the original Studyversity REST API (field names are the wire names). */
 
 data class User(
@@ -19,8 +22,12 @@ data class User(
     val facultyNameList: String? = null,
     val lastName: String? = null,
     val firstName: String? = null,
-    val currency: String = "HUF"
+    val currency: String = "HUF",
+    /** [ROLE_STUDENT] or [ROLE_INSTRUCTOR] */
+    val role: String = ROLE_STUDENT
 ) {
+    val isInstructor get() = role == ROLE_INSTRUCTOR
+
     fun formattedBalance(context: Context): String? = balance?.let {
         context.getString(R.string.account_balance) + " " + java.text.NumberFormat.getInstance().format(it) + " " + currency
     }

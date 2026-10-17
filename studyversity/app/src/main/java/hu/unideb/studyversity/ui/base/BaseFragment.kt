@@ -31,6 +31,7 @@ abstract class BaseFragment : Fragment() {
         if (result.resultCode == LoginActivity.RESULT_LOGGED_IN) {
             loginCallback?.invoke()
         } else if (closeAfterLoginError) {
+            // also covers RESULT_INSTRUCTOR: the console is open, this student screen has nothing to show
             activity?.onBackPressedDispatcher?.onBackPressed()
         }
     }

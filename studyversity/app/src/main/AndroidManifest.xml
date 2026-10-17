@@ -55,6 +55,8 @@
 
         <activity android:name=".ui.university_matters.university_locale.InstitutionListActivity" android:exported="false" />
 
+        <activity android:name=".ui.instructor.InstructorActivity" android:exported="false" android:screenOrientation="portrait" />
+
         <!-- UD Community -->
         <activity android:name=".ui.community.CommunityActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity

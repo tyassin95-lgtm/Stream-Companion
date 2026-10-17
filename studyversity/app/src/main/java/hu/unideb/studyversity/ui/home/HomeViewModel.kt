@@ -10,6 +10,7 @@ class HomeViewModel : ViewModel() {
     val mainMenuItems = ArrayList<SlideUpMenuItem>()
 
     private val studentMatters = arrayListOf(
+        item(R.color.teal, R.string.menu_instructor_console, R.drawable.ic_chalkboard_teacher, R.id.menu_instructor_console, SlideUpMenuItem.INSTRUCTORS_ONLY),
         item(R.color.teal, R.string.menu_profile, R.drawable.ic_user, R.id.menu_profile),
         item(R.color.teal, R.string.menu_time_table, R.drawable.ic_time_table, R.id.menu_time_table),
         item(R.color.teal, R.string.menu_course_informations, R.drawable.ic_book, R.id.menu_course_informations),
@@ -61,6 +62,14 @@ class HomeViewModel : ViewModel() {
             item(c, R.string.sub_menu_dexpo_questionnaries, R.drawable.ic_chart_pie, R.id.menu_dexpo_questionnaries),
             item(c, R.string.sub_menu_dexpo_get_certificate, R.drawable.ic_file_invoice, R.id.menu_dexpo_get_certificate),
             social
+        )
+    }
+
+    companion object {
+        /** Entries that belong to a student's own record; instructors do not see them. */
+        val STUDENT_ONLY = setOf(
+            R.id.menu_profile, R.id.menu_time_table, R.id.menu_course_informations, R.id.menu_taken_exams,
+            R.id.menu_my_mood, R.id.menu_ud_community, R.id.menu_my_messages
         )
     }
 

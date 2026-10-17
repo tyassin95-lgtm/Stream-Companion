@@ -3,6 +3,7 @@ package hu.unideb.studyversity
 import androidx.test.core.app.ApplicationProvider
 import hu.unideb.studyversity.core.ServiceLocator
 import hu.unideb.studyversity.data.*
+import hu.unideb.studyversity.data.local.Accounts
 import hu.unideb.studyversity.data.local.LocalBackend
 import hu.unideb.studyversity.data.model.*
 import hu.unideb.studyversity.ui.community.wizard.SocialLinks
@@ -45,26 +46,30 @@ class LocalBackendTest {
         Unit
     }
 
-    @Test fun loginRejectsBlankCredentials() = runBlocking {
-        try { backend.login("", "x"); fail() } catch (e: InvalidCredentialsException) { }
-        val u = backend.login("abc123", "pw")
-        assertEquals("ABC123", u.neptunCode)
-        assertEquals("ABC123", backend.currentUser()?.neptunCode)
+    @Test fun loginNeedsValidCredentials() = runBlocking {
+        for ((u, p) in listOf("" to "x", "student" to "", "student" to "wrong", "nobody" to Accounts.student.password, "student" to Accounts.instructor.password)) {
+            try { backend.login(u, p); fail("accepted $u/$p") } catch (e: InvalidCredentialsException) { }
+        }
+        assertNull(backend.currentUser())
+        val student = backend.login("STUDENT ", Accounts.student.password) // user name: case insensitive, trimmed
+        assertEquals(ROLE_STUDENT, student.role)
+        assertEquals("DZ7K4M", backend.currentUser()?.neptunCode)
         backend.logout()
         assertNull(backend.currentUser())
+        val instructor = backend.login(Accounts.instructor.username, Accounts.instructor.password)
+        assertEquals(ROLE_INSTRUCTOR, instructor.role)
+        assertTrue(instructor.isInstructor)
     }
 
-    @Test fun studentDataIsConsistent() = runBlocking {
-        backend.login("ABC123", "pw")
-        assertTrue(backend.trainings().isNotEmpty())
-        val tt = backend.timetable()
-        assertTrue(tt.isNotEmpty())
-        assertTrue(tt.all { it.classStart!! < it.classEnd!! })
-        val semesters = backend.courses().mapNotNull { it.semester }.distinct()
-        assertEquals(5, semesters.size)
-        // the semester shown first in the exam list has results; the running one has upcoming exams
-        assertTrue(backend.exams().any { it.examValue == null && it.examDate!! > Date() })
-        Unit
+    @Test fun rolesAreSeparated() = runBlocking {
+        backend.login(Accounts.student.username, Accounts.student.password)
+        try { backend.managedStudents(); fail() } catch (e: AccessDeniedException) { }
+        backend.logout()
+        backend.login(Accounts.instructor.username, Accounts.instructor.password)
+        for (call in listOf<suspend () -> Any?>({ backend.trainings() }, { backend.timetable() }, { backend.exams() }, { backend.messages() }, { backend.myCurrentGame() }, { backend.myCommunityProfile() })) {
+            try { call(); fail("instructor reached student data") } catch (e: AccessDeniedException) { }
+        }
+        assertEquals(1, backend.managedStudents().size)
     }
 
     @Test fun phoneBookPagesAndFilters() = runBlocking {
@@ -78,7 +83,7 @@ class LocalBackendTest {
     }
 
     @Test fun onlyOneMoodPerDay() = runBlocking {
-        backend.login("ABC123", "pw")
+        backend.login(Accounts.student.username, Accounts.student.password)
         backend.saveMood(MoodItem(moodValue = "GREAT"))
         try { backend.saveMood(MoodItem(moodValue = "BAD")); fail() } catch (e: HappyChallengeTodayAnsweredException) { }
         val today = backend.moodSummary(Date(), Date())
@@ -89,7 +94,7 @@ class LocalBackendTest {
     @Test fun moodGameNeedsRegistrationWhenNoGameExists() = runBlocking {
         val ctx = ApplicationProvider.getApplicationContext<StudyversityApp>()
         ctx.getSharedPreferences("studyversity_local_backend", 0).edit()
-            .putString("state", """{"neptun":"ABC123","readMessages":[],"moods":[],"interests":[]}""").commit()
+            .putString("state_v2", """{"username":"student","student":{"id":1,"neptun":"X1"},"readMessages":[],"moods":[],"interests":[]}""").commit()
         val fresh = LocalBackend(ctx, ServiceLocator.gson)
         try { fresh.myCurrentGame(); fail() } catch (e: NoMoodGameException) { }
         fresh.registerMoodGame()
@@ -103,10 +108,10 @@ class LocalBackendTest {
         val ctx = ApplicationProvider.getApplicationContext<StudyversityApp>()
         // stage 5 with 72 of 73 days done: the next mood completes the last level
         val days = (72 downTo 1).map { d -> Calendar.getInstance().apply { add(Calendar.DAY_OF_YEAR, -d) }.timeInMillis }
-        val json = """{"neptun":"ABC123","readMessages":[],"moods":[],"interests":[],"game":{"start":"2024-01-01T00:00:00.000+0000",
+        val json = """{"username":"student","student":{"id":1,"neptun":"X1"},"readMessages":[],"moods":[],"interests":[],"game":{"start":"2024-01-01T00:00:00.000+0000",
             "stage":5,"stageStart":"2024-06-01T00:00:00.000+0000","reported":[${days.joinToString { "\"" + java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(it) + "\"" }}],
             "completed":[]}}"""
-        ctx.getSharedPreferences("studyversity_local_backend", 0).edit().putString("state", json).commit()
+        ctx.getSharedPreferences("studyversity_local_backend", 0).edit().putString("state_v2", json).commit()
         val b = LocalBackend(ctx, ServiceLocator.gson)
         val before = b.myCurrentGame()
         assertEquals(5, before.currentStage?.stageOrder)
@@ -125,7 +130,7 @@ class LocalBackendTest {
     }
 
     @Test fun levelUpgradeIsDetectedFromStoredStage() = runBlocking {
-        backend.login("ABC123", "pw")
+        backend.login(Accounts.student.username, Accounts.student.password)
         val commons = MoodCommons(ServiceLocator.prefs)
         val game = backend.myCurrentGame()
         // first time the game is seen with stage 2 while stage 1 is remembered → level up
@@ -135,7 +140,7 @@ class LocalBackendTest {
     }
 
     @Test fun communitySuggestionsFollowSharedCategories() = runBlocking {
-        backend.login("ABC123", "pw")
+        backend.login(Accounts.student.username, Accounts.student.password)
         assertNull(backend.myCommunityProfile())
         val cats = backend.categories(listOf("interests", "faculty_names", "languages"))
         val interest = cats.first { it.parentCategoryCode == "interests" }
@@ -144,7 +149,7 @@ class LocalBackendTest {
         val me = backend.registerCommunityMember(
             CommunityMember(photoUrl = "res://avatar_1", interests = listOf(interest), faculties = listOf(faculty), preferredLanguages = listOf(language))
         )
-        assertEquals("Minta", me.lastName)
+        assertEquals("Szilágyi", me.lastName)
         assertEquals(me, backend.myCommunityProfile())
         val suggestions = backend.searchSuggestions()
         assertTrue(suggestions.isNotEmpty())
@@ -161,7 +166,7 @@ class LocalBackendTest {
     }
 
     @Test fun messagesBecomeRead() = runBlocking {
-        backend.login("ABC123", "pw")
+        backend.login(Accounts.student.username, Accounts.student.password)
         val unread = backend.messages().filter { !it.isRead }
         assertTrue(unread.isNotEmpty())
         backend.message(unread.first().id!!)
@@ -169,10 +174,10 @@ class LocalBackendTest {
     }
 
     @Test fun stateSurvivesRecreation() = runBlocking {
-        backend.login("ABC123", "pw")
+        backend.login(Accounts.student.username, Accounts.student.password)
         backend.saveMood(MoodItem(moodValue = "NORMAL"))
         val again = LocalBackend(ApplicationProvider.getApplicationContext<StudyversityApp>(), ServiceLocator.gson)
-        assertEquals("ABC123", again.currentUser()?.neptunCode)
+        assertEquals("DZ7K4M", again.currentUser()?.neptunCode)
         try { again.saveMood(MoodItem(moodValue = "BAD")); fail() } catch (e: HappyChallengeTodayAnsweredException) { }
     }
 

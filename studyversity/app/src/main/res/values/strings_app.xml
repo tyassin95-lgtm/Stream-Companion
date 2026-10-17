@@ -4,11 +4,10 @@
     <string name="retry">Retry</string>
     <string name="unknown_error">Something went wrong. Please try again.</string>
     <string name="login_title">Sign in</string>
-    <string name="login_neptun_code">Neptun code</string>
+    <string name="login_neptun_code">Username or Neptun code</string>
     <string name="login_password">Password</string>
     <string name="login_button">Sign in</string>
-    <string name="login_offline_hint">Offline demo mode: every Neptun code and password is accepted until the server is connected.</string>
-    <string name="login_required">Please enter your Neptun code and password.</string>
+    <string name="login_required">Please enter your username and password.</string>
     <string name="permission_denied_calendar">Calendar permission is needed to save classes.</string>
     <string name="timetable_saved_to_calendar">All classes were saved to your calendar.</string>
     <string name="event_saved_to_calendar">Class saved to your calendar.</string>
@@ -19,4 +18,5 @@
     <string name="mood_gift_chosen">Reward selected: %1$s</string>
     <string name="add_chip">Add</string>
     <string name="ok">OK</string>
+    <string name="login_invalid">Incorrect username or password.</string>
 </resources>

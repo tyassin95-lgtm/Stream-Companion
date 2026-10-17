@@ -28,7 +28,9 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
     )
 
     private class State(
-        var neptun: String? = null,
+        /** username of the signed-in account, null when signed out */
+        var username: String? = null,
+        var student: StudentRecord = StudentRecord(),
         var deviceToken: String? = null,
         var promotion: Boolean = true,
         var readMessages: MutableSet<Long> = mutableSetOf(),
@@ -45,7 +47,7 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
     private fun load(): State {
         val json = sp.getString(KEY_STATE, null)
         val loaded = json?.let { runCatching { gson.fromJson(it, State::class.java) }.getOrNull() }
-        return loaded ?: initialState()
+        return loaded?.takeIf { it.student.neptun.isNotEmpty() } ?: initialState()
     }
 
     private fun save() { sp.edit().putString(KEY_STATE, gson.toJson(state)).apply() }
@@ -54,7 +56,7 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
 
     private fun seed() = SeedData(context.resources.configuration.locales[0].language == "hu")
 
-    /** The demo student already took part in the mood game for three weeks: levels, history and rewards have content. */
+    /** The student already took part in the mood game for three weeks: levels, history and rewards have content. */
     private fun initialState(): State {
         val seed = seed()
         val today = startOfDay(Date())
@@ -75,7 +77,7 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
             start = addDays(today, -95, 12), stage = 2, stageStart = addDays(today, -22, 12), reported = reported,
             completed = mutableListOf(stage1), lastReported = reported.lastOrNull()
         )
-        return State(moods = moods, game = game)
+        return State(student = seed.newStudentRecord(), moods = moods, game = game)
     }
 
     // ---- small helpers -----------------------------------------------------------------------------------------
@@ -91,26 +93,44 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
 
     private fun plain(s: String?) = Normalizer.normalize(s.orEmpty(), Normalizer.Form.NFD).replace(Regex("\\p{M}+"), "").lowercase()
 
-    private fun neptun(): String = state.neptun ?: throw AuthRequiredException()
+    /** The signed-in account; [AuthRequiredException] when nobody is signed in. */
+    private fun account(): Accounts.Account =
+        state.username?.let { u -> listOf(Accounts.student, Accounts.instructor).firstOrNull { it.username == u } } ?: throw AuthRequiredException()
+
+    /** Signed in (any role). */
+    private fun neptun(): String = account().username
+
+    private fun requireStudent(): StudentRecord {
+        if (account().role != ROLE_STUDENT) throw AccessDeniedException()
+        return state.student
+    }
+
+    private fun requireInstructor() { if (account().role != ROLE_INSTRUCTOR) throw AccessDeniedException() }
+
+    private fun student(id: Long): StudentRecord = state.student.takeIf { it.id == id } ?: throw IllegalArgumentException("Unknown student")
 
     // ---- session -----------------------------------------------------------------------------------------------
     override suspend fun login(userName: String, password: String): User = locked {
-        if (userName.isBlank() || password.isBlank()) throw InvalidCredentialsException()
-        state.neptun = userName.trim().uppercase()
+        val account = Accounts.find(userName, password) ?: throw InvalidCredentialsException()
+        state.username = account.username
         save()
-        seed().user(state.neptun!!)
+        userOf(account)
     }
 
-    override suspend fun logout() = locked { state.neptun = null; save() }
+    private fun userOf(a: Accounts.Account): User = if (a.role == ROLE_INSTRUCTOR) seed().instructorUser() else seed().studentUser(state.student)
 
-    override suspend fun currentUser(): User? = locked { state.neptun?.let { seed().user(it) } }
+    override suspend fun logout() = locked { state.username = null; save() }
+
+    override suspend fun currentUser(): User? = locked {
+        state.username?.let { u -> listOf(Accounts.student, Accounts.instructor).firstOrNull { it.username == u }?.let(::userOf) }
+    }
 
     // ---- student data ------------------------------------------------------------------------------------------
-    override suspend fun trainings() = locked { seed().trainings(neptun()) }
-    override suspend fun timetable() = locked { neptun(); seed().timetable() }
-    override suspend fun courses() = locked { neptun(); seed().courses() }
-    override suspend fun exams() = locked { neptun(); seed().exams() }
-    override suspend fun modules() = locked { neptun(); seed().modules() }
+    override suspend fun trainings() = locked { seed().trainings(requireStudent()) }
+    override suspend fun timetable() = locked { seed().timetable(requireStudent()) }
+    override suspend fun courses() = locked { requireStudent(); seed().courses() }
+    override suspend fun exams() = locked { seed().exams(requireStudent()) }
+    override suspend fun modules() = locked { seed().modules(requireStudent()) }
 
     // ---- university content ------------------------------------------------------------------------------------
     override suspend fun academicYears() = seed().academicYears()
@@ -136,7 +156,7 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
 
     override suspend fun institution(poiId: Long) = seed().institution(poiId)
 
-    override suspend fun loanedBooks() = locked { neptun(); seed().loans() }
+    override suspend fun loanedBooks() = locked { requireStudent(); seed().loans() }
 
     override suspend fun searchLibrary(term: String, startRow: Int, endRow: Int): List<LibrarySearchItem> {
         val q = plain(term)
@@ -145,9 +165,15 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
     }
 
     // ---- messages & device -------------------------------------------------------------------------------------
+    /** Seeded notices plus the e-mails instructors sent to the student, newest first. */
+    private fun allMessages(): List<MessageDetail> {
+        val seed = seed()
+        return (seed.messages() + state.student.mails.map { seed.mailAsMessage(it, false) }).sortedByDescending { it.messageDate }
+    }
+
     override suspend fun messages(): List<MessageListItem> = locked {
-        neptun()
-        seed().messages().sortedByDescending { it.messageDate }.map {
+        requireStudent()
+        allMessages().map {
             MessageListItem(
                 id = it.id, userMessageId = it.id, messageToUserId = 1, channelType = "PUSH", deviceId = state.deviceToken,
                 messageBody = android.text.Html.fromHtml(it.messageBody.orEmpty(), android.text.Html.FROM_HTML_MODE_LEGACY).toString().trim(),
@@ -158,8 +184,8 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
     }
 
     override suspend fun message(id: Long): MessageDetail? = locked {
-        neptun()
-        val m = seed().messages().firstOrNull { it.id == id } ?: return@locked null
+        requireStudent()
+        val m = allMessages().firstOrNull { it.id == id } ?: return@locked null
         state.readMessages.add(id)
         save()
         m.copy(readed = true)
@@ -180,10 +206,10 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
     }
 
     // ---- mood game ---------------------------------------------------------------------------------------------
-    override suspend fun randomQuote(): QuoteItem? = locked { neptun(); seed().quotes().random() }
+    override suspend fun randomQuote(): QuoteItem? = locked { requireStudent(); seed().quotes().random() }
 
     override suspend fun saveMood(mood: MoodItem) = locked {
-        neptun()
+        requireStudent()
         val now = Date()
         if (state.moods.any { it.moodDate?.let { d -> sameDay(d, now) } == true }) throw HappyChallengeTodayAnsweredException(seed().moodAlreadyAnswered())
         state.moods.add(MoodItem(id = (state.moods.maxOfOrNull { it.id ?: 0 } ?: 0) + 1, moodDate = now, moodValue = mood.moodValue))
@@ -209,23 +235,23 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
         g.reported = mutableListOf()
     }
 
-    override suspend fun moods(): List<MoodItem> = locked { neptun(); state.moods.sortedByDescending { it.moodDate } }
+    override suspend fun moods(): List<MoodItem> = locked { requireStudent(); state.moods.sortedByDescending { it.moodDate } }
 
     override suspend fun moodSummary(from: Date, to: Date): List<MoodCountItem> = locked {
-        neptun()
+        requireStudent()
         val range = startOfDay(from)..Date(startOfDay(to).time + DAY_MS - 1)
         val counts = state.moods.filter { m -> m.moodDate?.let { it in range } == true }.groupingBy { it.moodValue }.eachCount()
         listOf("GREAT", "NORMAL", "BAD").mapIndexed { i, m -> MoodCountItem(id = i + 1L, mood = m, count = (counts[m] ?: 0).toString()) }
     }
 
     override suspend fun moodPoints(): PrizeItem? = locked {
-        neptun()
+        requireStudent()
         val g = state.game ?: return@locked null
         PrizeItem(id = 1, level = g.stage.toString(), point = g.completed.sumOf { it.days ?: 0 } + g.reported.size)
     }
 
     override suspend fun myCurrentGame(): StudentMoodGame = locked {
-        neptun()
+        requireStudent()
         val g = state.game ?: throw NoMoodGameException()
         val stages = seed().gameStages()
         StudentMoodGame(
@@ -236,10 +262,10 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
         )
     }
 
-    override suspend fun moodGameStages(): List<MoodGameStage> = locked { neptun(); seed().gameStages() }
+    override suspend fun moodGameStages(): List<MoodGameStage> = locked { requireStudent(); seed().gameStages() }
 
     override suspend fun chooseGift(stageId: Int, giftId: Int) = locked {
-        neptun()
+        requireStudent()
         val g = state.game ?: throw NoMoodGameException()
         val i = g.completed.indexOfFirst { it.id == stageId }
         if (i < 0) return@locked
@@ -249,7 +275,7 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
     }
 
     override suspend fun registerMoodGame() = locked {
-        neptun()
+        requireStudent()
         if (state.game == null) {
             val now = Date()
             state.game = GameState(start = now, stage = 1, stageStart = now, reported = mutableListOf(), completed = mutableListOf(), lastReported = null)
@@ -258,10 +284,10 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
     }
 
     // ---- community ---------------------------------------------------------------------------------------------
-    override suspend fun myCommunityProfile(): CommunityMember? = locked { neptun(); state.profile }
+    override suspend fun myCommunityProfile(): CommunityMember? = locked { requireStudent(); state.profile }
 
     override suspend fun registerCommunityMember(m: CommunityMember): CommunityMember = locked {
-        val user = seed().user(neptun())
+        val user = seed().studentUser(requireStudent())
         val saved = m.copy(
             id = MY_PROFILE_ID, userId = user.id, firstName = user.firstName, lastName = user.lastName, modules = user.studentTrainingNameList
         )
@@ -279,7 +305,7 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
     }
 
     override suspend fun deleteCommunityProfile(id: Long) = locked {
-        neptun()
+        requireStudent()
         state.profile = null
         state.interests.clear()
         save()
@@ -303,37 +329,37 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
     }
 
     override suspend fun communityMember(id: Long): CommunityMember? = locked {
-        neptun()
+        requireStudent()
         (seed().members().firstOrNull { it.id == id } ?: state.profile?.takeIf { it.id == id })?.let(::withSignificance)
     }
 
     override suspend fun searchMyInterests(): List<CommunityMember> = locked {
-        neptun()
+        requireStudent()
         seed().members().filter { it.id in state.interests }.map(::withSignificance)
     }
 
     override suspend fun searchSuggestions(): List<CommunityMember> = locked {
-        neptun()
+        requireStudent()
         seed().members().filter { it.id !in state.interests && shared(it) > 0 }
             .sortedWith(compareByDescending<CommunityMember> { shared(it) }.thenBy { plain(it.fullName) })
             .map(::withSignificance)
     }
 
     override suspend fun addToMyInterests(id: Long): CommunityMember? = locked {
-        neptun()
+        requireStudent()
         val m = seed().members().firstOrNull { it.id == id } ?: return@locked null
         state.interests.add(id)
         save()
         withSignificance(m)
     }
 
-    override suspend fun removeFromMyInterests(id: Long) = locked { neptun(); state.interests.remove(id); save(); Unit }
+    override suspend fun removeFromMyInterests(id: Long) = locked { requireStudent(); state.interests.remove(id); save(); Unit }
 
     override suspend fun categories(parentCodes: List<String>): List<CategoryItem> =
         seed().categories().filter { parentCodes.isEmpty() || it.parentCategoryCode in parentCodes }
 
     override suspend fun uploadProfileImage(bytes: ByteArray): String = locked {
-        neptun()
+        requireStudent()
         val file = File(context.filesDir, "profile_${System.currentTimeMillis()}.jpg")
         file.writeBytes(bytes)
         // keep only the newest upload
@@ -341,10 +367,123 @@ class LocalBackend(private val context: Context, private val gson: Gson) : Backe
         Uri.fromFile(file).toString()
     }
 
+    // ---- instructor console ------------------------------------------------------------------------------------
+    override suspend fun managedStudents(): List<StaffStudent> = locked {
+        requireInstructor()
+        listOf(seed().staffStudent(state.student))
+    }
+
+    override suspend fun updateStudent(update: StudentUpdate): StaffStudent = locked {
+        requireInstructor()
+        val r = student(update.id)
+        require(update.neptunCode.isNotBlank()) { "The university ID cannot be empty" }
+        require(update.lastName.isNotBlank() || update.firstName.isNotBlank()) { "The name cannot be empty" }
+        r.firstName = update.firstName.trim()
+        r.lastName = update.lastName.trim()
+        r.neptun = update.neptunCode.trim().uppercase()
+        r.email = update.email.trim()
+        r.balance = update.balance
+        r.trainingPlanEnd = update.trainingPlanEnd
+        save()
+        seed().staffStudent(r)
+    }
+
+    override suspend fun studentExams(studentId: Long): List<StaffExam> = locked {
+        requireInstructor()
+        student(studentId).exams.sortedWith(compareByDescending<StaffExam> { it.semester }.thenByDescending { it.examDate?.time ?: 0L }.thenByDescending { it.id })
+    }
+
+    override suspend fun saveStudentExam(studentId: Long, exam: StaffExam): StaffExam = locked {
+        requireInstructor()
+        val r = student(studentId)
+        val old = exam.id?.let { id -> r.exams.firstOrNull { it.id == id } }
+        if (exam.id != null && old == null) throw IllegalArgumentException("Unknown exam")
+        require(!exam.courseCode.isNullOrBlank() && !exam.subjectName.isNullOrBlank()) { "Choose a course" }
+        val grade = exam.grade?.takeIf { it in 1..5 }
+        val saved = exam.copy(
+            id = exam.id ?: ((r.exams.maxOfOrNull { it.id ?: 0 } ?: 0) + 1),
+            grade = grade,
+            recordDate = when {
+                grade == null -> null
+                old?.grade == grade -> old.recordDate ?: Date()
+                else -> Date()
+            }
+        )
+        if (old == null) r.exams.add(saved) else r.exams[r.exams.indexOf(old)] = saved
+        save()
+        saved
+    }
+
+    override suspend fun deleteStudentExam(studentId: Long, examId: Long) = locked {
+        requireInstructor()
+        student(studentId).exams.removeAll { it.id == examId }
+        save()
+        Unit
+    }
+
+    override suspend fun studentCourseOptions(studentId: Long): List<CourseOption> = locked {
+        requireInstructor()
+        student(studentId)
+        DentistryProgram.courses().filter { it.courseType == "L" }
+            .map { CourseOption(it.courseCode.orEmpty(), it.subjectName.orEmpty(), it.semester.orEmpty(), it.credit?.toIntOrNull() ?: 0) }
+            .sortedWith(compareByDescending<CourseOption> { it.semester }.thenBy { it.subjectName })
+    }
+
+    override suspend fun studentClasses(studentId: Long): List<TimeTableItem> = locked {
+        requireInstructor()
+        seed().timetable(student(studentId)).sortedBy { it.classStart }
+    }
+
+    override suspend fun addStudentClass(studentId: Long, item: TimeTableItem): TimeTableItem = locked {
+        requireInstructor()
+        val r = student(studentId)
+        require(!item.subjectName.isNullOrBlank()) { "The subject name cannot be empty" }
+        val start = item.classStart
+        val end = item.classEnd
+        require(start != null && end != null && start < end) { "The class must end after it starts" }
+        val saved = item.copy(
+            id = (r.classes.maxOfOrNull { it.id ?: 0 } ?: 0) + 1,
+            instructorName = item.instructorName ?: seed().instructorUser().name,
+            semester = item.semester ?: DentistryProgram.CURRENT_SEMESTER,
+            latitude = item.latitude ?: DentistryProgram.LAT, longitude = item.longitude ?: DentistryProgram.LON
+        )
+        r.classes.add(saved)
+        save()
+        saved
+    }
+
+    override suspend fun deleteStudentClass(studentId: Long, classId: Long) = locked {
+        requireInstructor()
+        student(studentId).classes.removeAll { it.id == classId }
+        save()
+        Unit
+    }
+
+    override suspend fun sendEmail(studentId: Long, subject: String, body: String): MailItem = locked {
+        requireInstructor()
+        val r = student(studentId)
+        require(subject.isNotBlank()) { "The subject cannot be empty" }
+        require(body.isNotBlank()) { "The message cannot be empty" }
+        val mail = MailItem(
+            id = maxOf(MAIL_ID_BASE, r.mails.maxOfOrNull { it.id ?: 0 } ?: 0) + 1, studentId = r.id,
+            from = seed().instructorUser().name, to = r.fullName, subject = subject.trim(), body = body.trim(), sentAt = Date()
+        )
+        r.mails.add(mail)
+        save()
+        mail
+    }
+
+    override suspend fun sentEmails(studentId: Long): List<MailItem> = locked {
+        requireInstructor()
+        student(studentId).mails.sortedByDescending { it.sentAt }
+    }
+
     private companion object {
-        const val KEY_STATE = "state"
+        const val KEY_STATE = "state_v2"
         const val LAST_STAGE = 6
         const val DAY_MS = 24L * 60 * 60 * 1000
         const val MY_PROFILE_ID = 1L
+        /** E-mails to the student are numbered above the seeded notices so message ids never clash. */
+        const val MAIL_ID_BASE = 1000L
     }
 }

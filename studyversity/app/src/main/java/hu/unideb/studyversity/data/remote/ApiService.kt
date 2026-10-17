@@ -161,6 +161,40 @@ interface ApiService {
 
     @POST("studyversityCommunity/removeFromMyInterests/{id}")
     suspend fun removeFromMyInterests(@Path("id") id: Long): RestResponse<Any>
+
+    // ---- instructor console (extension of the original contract; role INSTRUCTOR) ------------------------------------
+    @GET("staff/student/list")
+    suspend fun staffStudents(): RestResponse<StaffStudent>
+
+    @POST("staff/student/update")
+    suspend fun staffUpdateStudent(@Body update: StudentUpdate): RestResponse<StaffStudent>
+
+    @GET("staff/student/{id}/exams")
+    suspend fun staffExams(@Path("id") studentId: Long): RestResponse<StaffExam>
+
+    @POST("staff/student/{id}/exam/save")
+    suspend fun staffSaveExam(@Path("id") studentId: Long, @Body exam: StaffExam): RestResponse<StaffExam>
+
+    @POST("staff/student/{id}/exam/delete/{examId}")
+    suspend fun staffDeleteExam(@Path("id") studentId: Long, @Path("examId") examId: Long): RestResponse<Any>
+
+    @GET("staff/student/{id}/courses")
+    suspend fun staffCourses(@Path("id") studentId: Long): RestResponse<CourseOption>
+
+    @GET("staff/student/{id}/timetable")
+    suspend fun staffTimetable(@Path("id") studentId: Long): RestResponse<TimeTableItem>
+
+    @POST("staff/student/{id}/timetable/add")
+    suspend fun staffAddClass(@Path("id") studentId: Long, @Body item: TimeTableItem): RestResponse<TimeTableItem>
+
+    @POST("staff/student/{id}/timetable/delete/{classId}")
+    suspend fun staffDeleteClass(@Path("id") studentId: Long, @Path("classId") classId: Long): RestResponse<Any>
+
+    @POST("staff/student/{id}/email")
+    suspend fun staffSendEmail(@Path("id") studentId: Long, @Body mail: MailItem): RestResponse<MailItem>
+
+    @GET("staff/student/{id}/emails")
+    suspend fun staffEmails(@Path("id") studentId: Long): RestResponse<MailItem>
 }
 
 /** `neptun/studentFinancialAccount` row. */

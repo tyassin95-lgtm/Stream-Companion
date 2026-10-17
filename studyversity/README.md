@@ -1,11 +1,18 @@
-# Studyversity (offline rebuild)
+# Studyversity (rebuild without backend)
 
 A rebuild of the Android app **UD Studyversity** (`hu.unideb.studyversity`, v1.3.3, build 70, University of Debrecen)
-that runs **without a backend**. All server data comes from an on-device stand-in (`LocalBackend`) with demo content,
+that runs **without a backend**. All server data comes from an on-device stand-in (`LocalBackend`) with seed content,
 behind a single `Backend` interface, so the real server can be plugged in later without touching the UI.
 
-* Ready-made APK: [`dist/Studyversity-offline-1.3.3.apk`](dist/Studyversity-offline-1.3.3.apk)
+* Ready-made APK: [`dist/Studyversity-1.3.3.apk`](dist/Studyversity-1.3.3.apk)
   (package `hu.unideb.studyversity.reborn`, so it installs next to the original; signed with the Android **debug** key – re-sign it for distribution)
+* Accounts (kept in `data/local/Accounts.kt`, they stand in for the server's user table):
+
+  | Role | Username | Password |
+  |---|---|---|
+  | Student (dentistry, Szilágyi Máté, ID `DZ7K4M`) | `student` | `Student#2026` |
+  | Instructor (Dr. Kelemen Zoltán, Internal Medicine) | `instructor` | `Instructor#2026` |
+
 * Screenshots: [`docs/screenshots`](docs/screenshots) (rendered by the test suite, see *Testing*)
 
 > **Rights.** The layouts, icons, illustrations, strings and the app name were recovered from the original APK and belong to the
@@ -31,7 +38,7 @@ app/src/main/java/hu/unideb/studyversity
 ├── data/
 │   ├── Backend.kt                THE seam: every server call the UI needs (suspend functions)
 │   ├── model/Models.kt           value objects, field names = wire names of the original API
-│   ├── local/                    LocalBackend (+ persisted state) and SeedData (demo content)
+│   ├── local/                    LocalBackend (+ persisted state) and SeedData (seed content)
 │   └── remote/                   ApiService (Retrofit contract), RestResponse + request bodies, RemoteBackend, BackendConfig
 ├── ui/
 │   ├── base/                     BaseFragment/BaseActivity (loading, errors, login redirect), ListItemAdapter, PagedSearch
@@ -55,16 +62,22 @@ app/src/main/java/hu/unideb/studyversity
 
 `LocalBackend` implements `Backend` completely:
 
-* **Content** (`SeedData`): demo student "Minta Anna" with two trainings, a time table relative to today, 5 semesters of courses and exams, news/event/sport feeds,
-  30 phone-book entries, 16 places around Debrecen (approximate coordinates), library catalogue and loans, messages, quotes, community categories and 18 students.
-  Everything is invented sample data; texts exist in English and Hungarian.
-* **Behaviour** (state persisted as JSON in SharedPreferences):
-  * personal data needs a login (`AuthRequiredException` otherwise); **any non-empty Neptun code + password is accepted** (offline demo)
+* **Sign-in** is checked against `Accounts`; the role (student / instructor) decides which calls work (`AccessDeniedException` otherwise).
+* **The student** is a dentistry student who started in autumn 2020 (`DentistryProgram`): ten finished semesters of the curriculum with grades 3-5, a passive autumn 2025,
+  and one course left – **Internal Medicine** – that he took in spring 2026 and repeats in autumn 2026/27; graduation is expected in 2027 (written final exam on June 14, 2027).
+  Built from the uploaded documents: the autumn 2026/27 timetable (Internal Medicine: lecture Wed 10-11, practice Thu 15-16, room 2 MC, weeks 1-14 from Sept 7, 2026),
+  the 2025/26 spring timetable (Internal Medicine: Monday lecture 11-13 and practice 14-16), and the 2026/27 academic calendar (bundled as `assets/calendar/dentistry_2026_27.html`
+  and shown in *Academic calendar* for the student's faculty). Credits, the subjects of semesters not covered by the documents, grades and the 2025/26 semester dates are inferred.
+* **Instructor console** (`ui/instructor`): edit the student's name, university ID/code, e-mail, balance and expected graduation; open exams (date, open/closed) and enter or change grades
+  for any course; add/cancel classes; send e-mails that arrive in the student's *Messages*. An exam is invisible to the student until it is opened or graded.
+* **Other content** (`SeedData`): news/event/sport feeds, 31 phone-book entries, places around Debrecen (approximate coordinates), library catalogue and loans, messages, quotes,
+  community categories and 18 students. Texts exist in English and Hungarian.
+* **Behaviour** (state persisted as JSON in SharedPreferences, key `state_v2`):
   * one mood per day; the mood game has 5 levels of 73 reported days (365 days) and a 6th "game ended" stage; finished levels offer 3 rewards
     (choosing one is an addition – the original did it on a web page)
   * community suggestions rank students by shared interests (×2), faculties and languages; shared categories are highlighted
   * messages become read when opened; profile pictures are stored in app storage
-* The demo student starts with 20 reported days in level 2, no community profile (so the wizard shows up) and unread messages.
+  * the student starts with 20 reported days in level 2 and no community profile (so the wizard shows up)
 
 ### Rules ported from the original (`MoodCommons`, `MoodFlow`)
 Game over = stage 6 with no next stage; level-up when the stage number rose since the last stored game; questionnaire once after 10 identical moods in a row;
@@ -90,6 +103,7 @@ All paths relative to `API_BASE_URL`; answers are `RestResponse<T>` with the row
 | Phone book | `GET phonebook/searchEmployee?startRow&endRow&name`, `GET phonebook/employeeDetail?id` | paging: first 20 rows, then 10 |
 | Places | `GET category/getCategoryListWithParents?parentCodes=`, `POST map/institution/search` (AdvancedCriteria), `GET map/institution/get/{id}` | categories: `academic_classes`, `menza_restaurant`, `university_clubs_bars`, `sport`, … |
 | Library | `GET corvina/loanedBooks`, `GET corvina/search?startRow&endRow&term` | |
+| Instructor *(added)* | `GET staff/student/list`, `POST staff/student/update`, `GET staff/student/{id}/exams`, `POST …/exam/save`, `POST …/exam/delete/{examId}`, `GET …/courses`, `GET …/timetable`, `POST …/timetable/add`, `POST …/timetable/delete/{classId}`, `POST …/email`, `GET …/emails` | role `INSTRUCTOR` in `user/me`; e-mails must reach the student's message list |
 | Messages | `POST studyversityMessage/myMessageList/`, `GET studyversityMessage/get/{id}?deviceId`, `POST studyversityMessage/registerDevice` | |
 | Preferences | `POST studyversityPreferences/search`, `/add`, `/update` | snake_case flags |
 | Mood | `POST mood/add?newMode`, `GET mood/list`, `GET mood/getSummaryForInterval?fromDate&toDate`, `GET mood/getPoints` | server rejects a 2nd mood per day |
@@ -103,14 +117,16 @@ The models in `data/model/Models.kt` list every field the UI reads.
 ```
 ./gradlew :app:assembleDebug            # app/build/outputs/apk/debug
 ./gradlew :app:assembleRelease          # signed with the debug key
-./gradlew :app:testDebugUnitTest        # 44 tests, renders screenshots into app/build/screenshots
+./gradlew :app:testDebugUnitTest        # 70 tests, renders screenshots into app/build/screenshots
 ```
 Needs JDK 17 and an Android SDK (`sdk.dir` in `local.properties`, which is not committed), compileSdk 35, minSdk 24.
 
 **Testing limits – please read.** The build environment has no emulator or device (no KVM), so the app was **never run on a real Android system**.
 What was done instead:
 
-* `LocalBackendTest` – game rules, login gating, paging, persistence, community ranking.
+* `LocalBackendTest` – credentials and roles, game rules, paging, persistence, community ranking.
+* `StudentRecordTest` – the dentistry record (one course left, grades 3-5, timetable dates, bundled calendar) and a scan that no string or seed text contains "demo"-style wording.
+* `InstructorBackendTest` / `InstructorFlowTest` – what the instructor changes (name, ID, grades, exams, classes, e-mail) is what the student sees; the console screens end to end.
 * `ScreenSmokeTest` – under Robolectric every activity is started (signed in and out), every navigation destination is opened with the arguments its caller passes,
   every entry of the home menu is clicked (English and Hungarian); a screen fails when it throws or ends up showing an error snackbar.
 * `FlowTest` – sign-in, the whole registration wizard (validation per page → profile saved), chip selector, mood of the day, profile edit/delete, marking students as interesting, list contents.
@@ -120,7 +136,7 @@ Not covered: real devices/OEM quirks, animations and gestures, WebView content, 
 
 ## Differences from the original
 
-* No backend, no Firebase/push, no AppAuth: sign-in is a simple form accepted offline (`LoginActivity` keeps the original `RESULT_LOGGED_IN` contract).
+* No backend, no Firebase/push, no AppAuth: sign-in is a username/password form checked on the device (`LoginActivity` keeps the original `RESULT_LOGGED_IN` contract; instructors get `RESULT_INSTRUCTOR` and the console opens).
 * Map: **OpenStreetMap via osmdroid** instead of Google Maps (no API key needed); markers get a small jitter like the original to separate stacked pins.
 * Mood game registration: a native "join" dialog instead of the original web page; choosing a level reward is in the app (extension).
 * Questionnaire URLs were fixed to the ones in the original strings; web content (privacy policy, DEXPO, e-learning …) still opens the original university URLs from the string resources.

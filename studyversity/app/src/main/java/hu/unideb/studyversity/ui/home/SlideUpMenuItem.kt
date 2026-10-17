@@ -9,7 +9,8 @@ import hu.unideb.studyversity.R
 /**
  * Entry of the home accordion. Top level items have [color] == null and carry [subMenuItems];
  * leaf items carry the [id] (an `R.id.menu_*`) that HomeFragment routes on.
- * [parentId] -1 means "only visible when signed in", -100 "only when the Happy Challenge is switched on".
+ * [parentId] -1 means "only visible when signed in", -100 "only when the Happy Challenge is switched on",
+ * -3 "instructors only".
  */
 class SlideUpMenuItem(
     @ColorRes val color: Int?,
@@ -28,5 +29,6 @@ class SlideUpMenuItem(
     companion object {
         const val ONLY_WHEN_LOGGED_IN = -1
         const val ONLY_WHEN_HAPPY_CHALLENGE_ON = -100
+        const val INSTRUCTORS_ONLY = -3
     }
 }

@@ -193,6 +193,20 @@ class RemoteBackend(private val prefs: AppPreferences, gson: Gson) : Backend {
         doc.url ?: (BackendConfig.DOCUMENT_BASE_URL + "id/" + doc.id)
     }
 
+    // ---- instructor console ------------------------------------------------------------------------------------
+    override suspend fun managedStudents() = call { api.staffStudents().checkedData() }
+    override suspend fun updateStudent(update: StudentUpdate) = call { api.staffUpdateStudent(update).checkedFirst() }
+    override suspend fun studentExams(studentId: Long) = call { api.staffExams(studentId).checkedData() }
+    override suspend fun saveStudentExam(studentId: Long, exam: StaffExam) = call { api.staffSaveExam(studentId, exam).checkedFirst() }
+    override suspend fun deleteStudentExam(studentId: Long, examId: Long) { call { api.staffDeleteExam(studentId, examId).checkedData() } }
+    override suspend fun studentCourseOptions(studentId: Long) = call { api.staffCourses(studentId).checkedData() }
+    override suspend fun studentClasses(studentId: Long) = call { api.staffTimetable(studentId).checkedData() }
+    override suspend fun addStudentClass(studentId: Long, item: TimeTableItem) = call { api.staffAddClass(studentId, item).checkedFirst() }
+    override suspend fun deleteStudentClass(studentId: Long, classId: Long) { call { api.staffDeleteClass(studentId, classId).checkedData() } }
+    override suspend fun sendEmail(studentId: Long, subject: String, body: String) =
+        call { api.staffSendEmail(studentId, MailItem(studentId = studentId, subject = subject, body = body)).checkedFirst() }
+    override suspend fun sentEmails(studentId: Long) = call { api.staffEmails(studentId).checkedData() }
+
     private companion object {
         const val KEY_TOKEN = "auth_token"
         /** Error code the server answers when a mood was already added for today. */

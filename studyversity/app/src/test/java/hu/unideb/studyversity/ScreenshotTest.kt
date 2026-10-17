@@ -144,6 +144,21 @@ class ScreenshotTest {
         shot("self_profile", start(SelfProfileDisplayAndEditActivity::class.java).get())
     }
 
+    @Test fun instructorConsole() {
+        TestSupport.resetApp(true, instructor = true)
+        val c = start(hu.unideb.studyversity.ui.instructor.InstructorActivity::class.java)
+        val pager = c.get().findViewById<androidx.viewpager2.widget.ViewPager2>(R.id.instructorPager)
+        for ((i, name) in listOf("instructor_student", "instructor_exams", "instructor_timetable", "instructor_email").withIndex()) {
+            pager.setCurrentItem(i, false); TestSupport.settle(); shot(name, c.get())
+        }
+        pager.setCurrentItem(1, false); TestSupport.settle()
+        val list = c.get().window.decorView.let { v -> generateSequence(listOf(v)) { l -> l.flatMap { (it as? ViewGroup)?.let { g -> (0 until g.childCount).map(g::getChildAt) } ?: emptyList() }.ifEmpty { null } }.flatten() }
+            .filterIsInstance<androidx.recyclerview.widget.RecyclerView>().first { it.isShown }
+        list.getChildAt(1).performClick(); TestSupport.settle()
+        shot("instructor_exam_dialog", c.get())
+        shot("home_instructor", start(MainActivity::class.java).get())
+    }
+
     @Test fun login() {
         TestSupport.resetApp(false)
         shot("login", start(LoginActivity::class.java).get())

@@ -13,6 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
 import hu.unideb.studyversity.core.ServiceLocator
+import hu.unideb.studyversity.data.local.Accounts
 import hu.unideb.studyversity.data.model.CommunityMember
 import hu.unideb.studyversity.databinding.*
 import hu.unideb.studyversity.ui.community.ChipSelectionType
@@ -79,11 +80,18 @@ class FlowTest {
         assertFalse(c.get().isFinishing)
         assertFalse(ServiceLocator.session.isLoggedIn)
 
-        b.neptunCodeInput.setText("abc123"); b.passwordInput.setText("pw")
+        b.neptunCodeInput.setText("student"); b.passwordInput.setText("not the password")
+        b.loginButton.performClick(); TestSupport.settle()
+        assertNotNull("wrong credentials are refused", snackbar(c.get()))
+        assertEquals(app.getString(R.string.login_invalid), snackbar(c.get()))
+        assertFalse(c.get().isFinishing)
+        assertFalse(ServiceLocator.session.isLoggedIn)
+
+        b.neptunCodeInput.setText(Accounts.student.username); b.passwordInput.setText(Accounts.student.password)
         b.loginButton.performClick(); TestSupport.settle()
         assertTrue(c.get().isFinishing)
         assertEquals(LoginActivity.RESULT_LOGGED_IN, shadowOf(c.get()).resultCode)
-        assertEquals("ABC123", ServiceLocator.session.currentUser?.neptunCode)
+        assertEquals("DZ7K4M", ServiceLocator.session.currentUser?.neptunCode)
     }
 
     @Test fun loginCancel() {
@@ -100,8 +108,8 @@ class FlowTest {
         val nav = (c.get().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
         nav.navigate(R.id.profileFragment); TestSupport.settle()
         val text = views(navFragment(c.get()).requireView()).filterIsInstance<TextView>().joinToString("|") { it.text }
-        assertTrue(text, text.contains("Minta Anna") || text.contains("ABC123"))
-        assertTrue("balance shown: $text", text.contains("25"))
+        assertTrue(text, text.contains("Szilágyi Máté") || text.contains("DZ7K4M"))
+        assertTrue(text, text.contains("Dentistry"))
     }
 
     // ---- list content ------------------------------------------------------------------------------------------
@@ -129,8 +137,8 @@ class FlowTest {
         val nav = (c.get().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
         nav.navigate(R.id.academicYearFragment); TestSupport.settle()
         val b = AcademicYearFragmentBinding.bind(navFragment(c.get()).requireView())
-        assertEquals(5, b.mySpinnerDropdown.adapter.count)
-        assertEquals("Faculty of Informatics", b.mySpinnerDropdown.text.toString())
+        assertEquals(6, b.mySpinnerDropdown.adapter.count)
+        assertEquals("Faculty of Dentistry", b.mySpinnerDropdown.text.toString())
         assertEquals(View.VISIBLE, b.webView.visibility)
     }
 
@@ -195,7 +203,7 @@ class FlowTest {
         assertEquals("Hello from the wizard", me.description)
         assertEquals("https://www.facebook.com/anna.minta", me.facebookLink)
         assertEquals(2, me.interests.size)
-        assertEquals("Minta", me.lastName)
+        assertEquals("Szilágyi", me.lastName)
 
         FragmentWizardFinishBinding.bind(navFragment(activity).requireView()).finishRegistration.performClick()
         assertTrue(activity.isFinishing)
@@ -253,7 +261,7 @@ class FlowTest {
         val c = start(HappyChallengeActivity::class.java, Intent(app, HappyChallengeActivity::class.java).putExtra("showPackageChoose", true))
         val activity = c.get()
         val first = HappyChallengeFragmentBinding.bind(activity.findViewById<ViewGroup>(R.id.container).getChildAt(0))
-        assertTrue(first.greetingText.text.contains("Minta Anna"))
+        assertTrue(first.greetingText.text.contains("Szilágyi Máté"))
         first.greatCard.performClick(); TestSupport.settle()
 
         assertEquals(1, runBlocking { backend.moods() }.count { it.moodDate!!.time > System.currentTimeMillis() - 60_000 })
@@ -315,7 +323,7 @@ class FlowTest {
         val c = start(SelfProfileDisplayAndEditActivity::class.java)
         val activity = c.get()
         val b = ActivityEditSelfProfileBinding.bind(content(activity))
-        assertEquals("Minta Anna", b.nameText.text.toString())
+        assertEquals("Szilágyi Máté", b.nameText.text.toString())
         assertEquals("About me", b.descriptionText.text.toString())
         assertEquals(View.GONE, b.descriptionInputLayout.visibility)
         assertEquals(View.VISIBLE, b.socialButtonsRow.visibility)

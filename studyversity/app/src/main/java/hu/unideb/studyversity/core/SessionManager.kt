@@ -12,21 +12,26 @@ class SessionManager(private val backend: Backend, private val prefs: AppPrefere
     val isLoggedIn get() = _user.value != null
     val currentUser get() = _user.value
 
+    private fun publish(u: User?) {
+        // on the main thread the value must be visible right away (a screen opened next reads it)
+        if (android.os.Looper.myLooper() == android.os.Looper.getMainLooper()) _user.value = u else _user.postValue(u)
+    }
+
     suspend fun refresh(): User? {
         val u = runCatching { backend.currentUser() }.getOrNull()
-        _user.postValue(u)
+        publish(u)
         return u
     }
 
     suspend fun login(userName: String, password: String): User {
         val u = backend.login(userName, password)
-        _user.postValue(u)
+        publish(u)
         return u
     }
 
     suspend fun logout() {
         runCatching { backend.logout() }
         prefs.deleteUserPrefs()
-        _user.postValue(null)
+        publish(null)
     }
 }

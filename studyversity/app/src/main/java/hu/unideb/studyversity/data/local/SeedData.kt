@@ -5,9 +5,9 @@ import java.util.Calendar
 import java.util.Date
 
 /**
- * Demo content served by [LocalBackend] until a real server exists. Everything here is invented sample data
- * (names, phone numbers, grades, books ...); only the structure follows the original REST payloads.
- * Dates are generated relative to [now] so the timetable and exams always look current.
+ * Content served by [LocalBackend] until a real server exists: university information, the phone book, places,
+ * library, messages, mood game and community. The student's own records live in [DentistryProgram] / [StudentRecord].
+ * Dates of the news and messages are generated relative to [now].
  *
  * Texts come in English and Hungarian; [hu] selects the language.
  */
@@ -23,176 +23,78 @@ class SeedData(private val hu: Boolean, private val now: Date = Date()) {
         set(Calendar.HOUR_OF_DAY, hour); set(Calendar.MINUTE, minute); set(Calendar.SECOND, 0); set(Calendar.MILLISECOND, 0)
     }.time
 
-    private fun mondayOfThisWeek(): Date = cal().apply {
-        set(Calendar.HOUR_OF_DAY, 0); set(Calendar.MINUTE, 0); set(Calendar.SECOND, 0); set(Calendar.MILLISECOND, 0)
-        val dow = (get(Calendar.DAY_OF_WEEK) + 5) % 7 // Monday = 0
-        add(Calendar.DAY_OF_YEAR, -dow)
-    }.time
+    // ---- people ----------------------------------------------------------------------------------------------
+    private val trainingName get() = l("Dentistry", "Fogorvos")
+    private val facultyName get() = l("Faculty of Dentistry", "Fogorvostudományi Kar")
 
-    /** "2025/26/1" style semester ids; [back] = 0 current semester, 1 previous ... */
-    fun semester(back: Int): String {
-        val c = cal()
-        val month = c.get(Calendar.MONTH)
-        val year = c.get(Calendar.YEAR)
-        // autumn term: September - January, spring term: February - August
-        var term: Int
-        var startYear: Int
-        when {
-            month >= Calendar.SEPTEMBER -> { term = 1; startYear = year }
-            month == Calendar.JANUARY -> { term = 1; startYear = year - 1 }
-            else -> { term = 2; startYear = year - 1 }
-        }
-        repeat(back) { if (term == 2) term = 1 else { term = 2; startYear -= 1 } }
-        return "$startYear/${(startYear + 1) % 100}/$term"
-    }
-
-    // ---- student ---------------------------------------------------------------------------------------------
-    fun user(neptun: String) = User(
-        id = 1, name = "Minta Anna", firstName = "Anna", lastName = "Minta", email = "anna.minta@example.com",
-        profile = "STUDENT", neptunCode = neptun.uppercase(), balance = 25000,
-        studentTrainingNameList = trainingName, facultyNameList = l("Faculty of Informatics", "Informatikai Kar")
+    /** The student the record describes; changes made by the instructor show up here. */
+    fun newStudentRecord() = StudentRecord(
+        id = 1, firstName = "Máté", lastName = "Szilágyi", neptun = "DZ7K4M", email = "mate.szilagyi@students.example.org", balance = 0,
+        trainingPlanEnd = DentistryProgram.plannedEnd(), exams = DentistryProgram.exams().toMutableList(),
+        classes = DentistryProgram.classes(INSTRUCTOR_NAME).toMutableList()
     )
 
-    private val trainingName get() = l("Computer Science Engineering BSc", "Mérnökinformatikus BSc")
+    fun studentUser(r: StudentRecord) = User(
+        id = r.id, name = r.fullName, email = r.email, profile = "STUDENT", neptunCode = r.neptun, balance = r.balance,
+        studentTrainingNameList = trainingName, facultyNameList = facultyName, lastName = r.lastName, firstName = r.firstName
+    )
 
-    fun trainings(neptun: String): List<StudentTrainingItem> = listOf(
+    fun instructorUser() = User(
+        id = 2, name = INSTRUCTOR_NAME, firstName = "Zoltán", lastName = "Kelemen", email = "zoltan.kelemen@staff.example.org",
+        profile = "INSTRUCTOR", role = ROLE_INSTRUCTOR,
+        facultyNameList = l("Faculty of Medicine – Department of Internal Medicine", "Általános Orvostudományi Kar – Belgyógyászati Klinika")
+    )
+
+    fun staffStudent(r: StudentRecord) = StaffStudent(
+        id = r.id, firstName = r.firstName, lastName = r.lastName, neptunCode = r.neptun, email = r.email, balance = r.balance,
+        trainingName = trainingName, facultyName = facultyName, trainingStart = DentistryProgram.trainingStart(), trainingPlanEnd = r.trainingPlanEnd
+    )
+
+    // ---- student data ----------------------------------------------------------------------------------------
+    fun trainings(r: StudentRecord): List<StudentTrainingItem> = listOf(
         StudentTrainingItem(
-            id = 1, neptunCode = neptun.uppercase(), moduleName = trainingName, moduleCode = "BMI-BSC",
-            facultyName = l("Faculty of Informatics", "Informatikai Kar"), facultyCode = "IK",
-            moduleLevel = l("Bachelor (BSc)", "Alapképzés (BSc)"), trainingMode = l("Full-time", "Nappali"),
-            financialStatus = l("State-funded", "Állami ösztöndíjas"), moduleStatus = l("Active", "Aktív"),
-            activeSemesters = "5", passiveSemesters = "0",
-            moduleValidFrom = at(now, -365 * 3, 0), moduleValidTo = at(now, 365 * 2, 0),
-            trainingStart = at(now, -365 * 2 - 90, 0), trainingPlanEnd = at(now, 365 + 150, 0)
-        ),
-        StudentTrainingItem(
-            id = 2, neptunCode = neptun.uppercase(), moduleName = l("Business Informatics MSc", "Gazdaságinformatikus MSc"), moduleCode = "GI-MSC",
-            facultyName = l("Faculty of Economics and Business", "Gazdaságtudományi Kar"), facultyCode = "GTK",
-            moduleLevel = l("Master (MSc)", "Mesterképzés (MSc)"), trainingMode = l("Part-time", "Levelező"),
-            financialStatus = l("Self-funded", "Önköltséges"), moduleStatus = l("Passive", "Passzív"),
-            activeSemesters = "1", passiveSemesters = "1",
-            moduleValidFrom = at(now, -365, 0), moduleValidTo = at(now, 365 * 3, 0),
-            trainingStart = at(now, -400, 0), trainingPlanEnd = at(now, 365 * 2, 0)
+            id = 1, neptunCode = r.neptun, moduleName = trainingName, moduleCode = "DDS-EN",
+            facultyName = facultyName, facultyCode = "FOK",
+            moduleLevel = l("Undivided master's programme", "Osztatlan mesterképzés"), trainingMode = l("Full-time", "Nappali"),
+            financialStatus = l("Self-funded", "Önköltséges"), moduleStatus = l("Active", "Aktív"),
+            activeSemesters = "12", passiveSemesters = "1",
+            moduleValidFrom = at(DentistryProgram.trainingStart(), -6, 0), moduleValidTo = at(DentistryProgram.plannedEnd(), 62, 0),
+            trainingStart = DentistryProgram.trainingStart(), trainingPlanEnd = r.trainingPlanEnd
         )
     )
 
-    fun modules(): List<StudentModuleItem> = listOf(
-        StudentModuleItem(id = 1, moduleCode = "BMI-BSC", moduleName = trainingName, userId = 1),
-        StudentModuleItem(id = 2, moduleCode = "GI-MSC", moduleName = l("Business Informatics MSc", "Gazdaságinformatikus MSc"), userId = 1)
-    )
+    fun modules(r: StudentRecord): List<StudentModuleItem> = listOf(StudentModuleItem(id = 1, moduleCode = "DDS-EN", moduleName = DentistryProgram.MODULE, userId = r.id))
 
-    private class Subject(val code: String, val en: String, val hu: String, val credit: Int)
+    fun courseTypeLabel(code: String?) = when (code) { "L" -> l("Lecture", "Előadás"); "P" -> l("Practice", "Gyakorlat"); else -> code }
+    fun examTypeLabel(code: String?) = when (code) {
+        "EXAM" -> l("Exam", "Vizsga"); "MARK" -> l("Practical mark", "Gyakorlati jegy"); "FINAL" -> l("Final examination", "Záróvizsga"); else -> code
+    }
 
-    /** Subjects per semester, index 0 = first semester ... 4 = the current (fifth) one. */
-    private val curriculum: List<List<Subject>> = listOf(
-        listOf(
-            Subject("IBN1101", "Calculus I", "Analízis I", 5), Subject("IBN1102", "Discrete Mathematics", "Diszkrét matematika", 4),
-            Subject("IBN1103", "Programming Fundamentals", "Programozás alapjai", 6), Subject("IBN1104", "Computer Architecture", "Számítógép-architektúrák", 4),
-            Subject("IBN1105", "Academic Skills", "Tanulásmódszertan", 2)
-        ),
-        listOf(
-            Subject("IBN1201", "Calculus II", "Analízis II", 5), Subject("IBN1202", "Data Structures and Algorithms", "Adatszerkezetek és algoritmusok", 6),
-            Subject("IBN1203", "Object-Oriented Programming", "Objektumorientált programozás", 6), Subject("IBN1204", "Linear Algebra", "Lineáris algebra", 4),
-            Subject("IBN1205", "Digital Technology", "Digitális technika", 4)
-        ),
-        listOf(
-            Subject("IBN2101", "Probability and Statistics", "Valószínűségszámítás és statisztika", 4), Subject("IBN2102", "Databases", "Adatbázisok", 6),
-            Subject("IBN2103", "Operating Systems", "Operációs rendszerek", 5), Subject("IBN2104", "Computer Networks", "Számítógép-hálózatok", 5),
-            Subject("IBN2105", "Software Engineering I", "Szoftvertechnológia I", 4)
-        ),
-        listOf(
-            Subject("IBN2201", "Software Engineering II", "Szoftvertechnológia II", 4), Subject("IBN2202", "Web Technologies", "Webtechnológiák", 5),
-            Subject("IBN2203", "Artificial Intelligence", "Mesterséges intelligencia", 5), Subject("IBN2204", "Formal Languages", "Formális nyelvek", 4),
-            Subject("IBN2205", "Computer Graphics", "Számítógépes grafika", 4)
-        ),
-        listOf(
-            Subject("IBN3101", "Machine Learning", "Gépi tanulás", 5), Subject("IBN3102", "Mobile Application Development", "Mobilalkalmazás-fejlesztés", 5),
-            Subject("IBN3103", "Distributed Systems", "Elosztott rendszerek", 5), Subject("IBN3104", "Information Security", "Informatikai biztonság", 4),
-            Subject("IBN3105", "Thesis Seminar", "Szakdolgozati szeminárium", 3)
+    fun courses(): List<StudentCourseItem> = DentistryProgram.courses().map { it.copy(courseType = courseTypeLabel(it.courseType)) }
+
+    /** Opened or graded exams only: what the instructor has not opened is invisible to the student. */
+    fun exams(r: StudentRecord): List<StudentExamItem> = r.exams.filter { it.opened || it.grade != null }.map { e ->
+        StudentExamItem(
+            id = e.id, subjectName = e.subjectName, courseCode = e.courseCode, courseType = courseTypeLabel(e.courseType),
+            examType = examTypeLabel(e.examType), credit = e.credit?.toString(), semester = e.semester, moduleName = DentistryProgram.MODULE,
+            moduleValidFrom = DentistryProgram.trainingStart(), moduleValidTo = r.trainingPlanEnd,
+            examDate = e.examDate, examRecordDate = e.recordDate, examValue = e.grade?.toString(),
+            examRecordType = e.grade?.let { if (e.examType == "MARK") l("Practical grade", "Gyakorlati jegy") else l("Exam grade", "Vizsgajegy") },
+            subjectRequirement = examTypeLabel(e.examType)
         )
-    )
-
-    private fun semesterOfIndex(i: Int) = semester(curriculum.size - 1 - i)
-
-    fun courses(): List<StudentCourseItem> {
-        var id = 1L
-        return curriculum.flatMapIndexed { si, subjects ->
-            subjects.flatMap { s ->
-                listOf(l("Lecture", "Előadás") to "L", l("Practice", "Gyakorlat") to "G").map { (type, suffix) ->
-                    StudentCourseItem(
-                        id = id++, subjectName = l(s.en, s.hu), courseCode = "${s.code}-$suffix", courseType = type,
-                        credit = if (suffix == "L") s.credit.toString() else "0", semester = semesterOfIndex(si), moduleName = trainingName
-                    )
-                }
-            }
-        }
     }
 
-    fun exams(): List<StudentExamItem> {
-        val grades = listOf("5", "4", "5", "3", "4", "5", "4", "3", "5", "4")
-        var id = 1L
-        var g = 0
-        return curriculum.flatMapIndexed { si, subjects ->
-            val current = si == curriculum.size - 1
-            subjects.mapIndexed { i, s ->
-                val examDate = if (current) at(now, 10 + i * 3, 9 + (i % 3) * 2) else at(now, -(curriculum.size - 1 - si) * 180 + 20 + i * 2, 10)
-                StudentExamItem(
-                    id = id++, subjectName = l(s.en, s.hu), courseCode = "${s.code}-L", courseType = l("Lecture", "Előadás"),
-                    examType = if (i == 4) l("Term mark", "Évközi jegy") else l("Written exam", "Írásbeli vizsga"),
-                    credit = s.credit.toString(), semester = semesterOfIndex(si), moduleName = trainingName,
-                    moduleValidFrom = at(now, -365 * 3, 0), moduleValidTo = at(now, 365 * 2, 0),
-                    examDate = examDate,
-                    examValue = if (current) null else grades[g++ % grades.size],
-                    examRecordDate = if (current) null else examDate,
-                    examRecordType = if (current) null else l("Exam grade", "Vizsgajegy"),
-                    subjectRequirement = if (i == 4) l("Term mark", "Évközi jegy") else l("Exam", "Vizsga")
-                )
-            }
-        }
-    }
-
-    // ---- timetable -------------------------------------------------------------------------------------------
-    private class Slot(val day: Int, val h: Int, val m: Int, val subject: Int, val type: String, val room: String, val teacher: String, val lat: String, val lon: String)
-
-    fun timetable(): List<TimeTableItem> {
-        val current = curriculum.last()
-        val ik = "47.5589" to "21.6262" // approximate positions of the sample buildings
-        val main = "47.5472" to "21.6240"
-        val slots = listOf(
-            Slot(0, 8, 0, 0, "L", "IK 101", "Dr. Kovács Béla", ik.first, ik.second),
-            Slot(0, 10, 0, 1, "G", "IK 204", "Szabó Réka", ik.first, ik.second),
-            Slot(1, 12, 0, 2, "L", "IK 103", "Dr. Nagy Gergely", ik.first, ik.second),
-            Slot(2, 8, 0, 3, "L", "Aula A", "Dr. Tóth Katalin", main.first, main.second),
-            Slot(2, 14, 0, 4, "G", "IK 301", "Dr. Horváth Péter", ik.first, ik.second),
-            Slot(3, 10, 0, 1, "L", "IK 101", "Dr. Varga Zsolt", ik.first, ik.second),
-            Slot(4, 8, 0, 0, "G", "IK 208", "Szabó Réka", ik.first, ik.second)
-        )
-        var id = 1L
-        val monday = mondayOfThisWeek()
-        val sem = semester(0)
-        val out = ArrayList<TimeTableItem>()
-        for (week in -1..2) for (s in slots) {
-            val subject = current[s.subject]
-            val start = at(monday, week * 7 + s.day, s.h, s.m)
-            val end = cal(start).apply { add(Calendar.MINUTE, 90) }.time
-            out.add(TimeTableItem(
-                id = id++, subjectName = l(subject.en, subject.hu), subjectCode = subject.code + "-" + s.type,
-                roomName = s.room, roomCode = s.room.replace(" ", ""),
-                courseType = if (s.type == "L") l("Lecture", "Előadás") else l("Practice", "Gyakorlat"),
-                classStart = start, classEnd = end, semester = sem, instructorName = s.teacher, latitude = s.lat, longitude = s.lon
-            ))
-        }
-        return out
-    }
+    fun timetable(r: StudentRecord): List<TimeTableItem> = r.classes.map { it.copy(courseType = courseTypeLabel(it.courseType)) }
 
     // ---- university content ----------------------------------------------------------------------------------
-    /** The academic calendar is published per faculty. */
+    /** The academic calendar is published per faculty; the Faculty of Dentistry's is bundled with the app. */
     fun academicYears(): List<AcademicYearItem> = listOf(
-        AcademicYearItem(1, l("Faculty of Informatics", "Informatikai Kar"), SITE),
-        AcademicYearItem(2, l("Faculty of Economics and Business", "Gazdaságtudományi Kar"), SITE),
-        AcademicYearItem(3, l("Faculty of Engineering", "Műszaki Kar"), SITE),
-        AcademicYearItem(4, l("Faculty of Humanities", "Bölcsészettudományi Kar"), SITE),
-        AcademicYearItem(5, l("Faculty of Medicine", "Általános Orvostudományi Kar"), SITE)
+        AcademicYearItem(1, l("Faculty of Dentistry", "Fogorvostudományi Kar"), "file:///android_asset/calendar/dentistry_2026_27.html"),
+        AcademicYearItem(2, l("Faculty of Informatics", "Informatikai Kar"), SITE),
+        AcademicYearItem(3, l("Faculty of Economics and Business", "Gazdaságtudományi Kar"), SITE),
+        AcademicYearItem(4, l("Faculty of Engineering", "Műszaki Kar"), SITE),
+        AcademicYearItem(5, l("Faculty of Humanities", "Bölcsészettudományi Kar"), SITE),
+        AcademicYearItem(6, l("Faculty of Medicine", "Általános Orvostudományi Kar"), SITE)
     )
 
     fun scholarships(): List<StudentScholarShipItem> = listOf(
@@ -276,7 +178,8 @@ class SeedData(private val hu: Boolean, private val now: Date = Date()) {
         Person("Gál Krisztián", "hallgatói önkormányzati elnök", "Hallgatói Önkormányzat", "Student Government", "HÖK iroda"),
         Person("Illés Boglárka", "pszichológus", "Mentálhigiénés Központ", "Mental Health Centre", "MK 2"),
         Person("Vincze Roland", "informatikus", "Informatikai Igazgatóság<br/>Hallgatói Támogatás", "IT Directorate<br/>Student Support", "IG 1.04"),
-        Person("Sipos Beáta", "recepciós", "Rektori Hivatal", "Rector's Office", "Főép. 001")
+        Person("Sipos Beáta", "recepciós", "Rektori Hivatal", "Rector's Office", "Főép. 001"),
+        Person(INSTRUCTOR_NAME, "egyetemi docens", "Általános Orvostudományi Kar<br/>Belgyógyászati Klinika", "Faculty of Medicine<br/>Department of Internal Medicine", "2 MC")
     )
 
     private fun emailOf(p: Person) = p.name.removePrefix("Dr. ").lowercase()
@@ -335,6 +238,8 @@ class SeedData(private val hu: Boolean, private val now: Date = Date()) {
         Place(13, "Climbing Wall", "Falmászó", "sport", "4032 Debrecen, Nagyerdei krt. 98.", "47.5554", "21.6110", "Great Forest Campus", "16:00 - 21:00", "+36 52 000 013"),
         Place(14, "Dormitory Campus Hall", "Campus Hall Kollégium", "dormitory", "4032 Debrecen, Kassai út 30.", "47.5611", "21.6280", "Kassai Campus", null, "+36 52 000 014"),
         Place(15, "Student Services Centre", "Hallgatói Szolgáltató Központ", "student_services", "4032 Debrecen, Egyetem tér 1.", "47.5474", "21.6235", "Main Campus", "09:00 - 15:00", "+36 52 000 015"),
+        Place(17, "Faculty of Dentistry", "Fogorvostudományi Kar", "academic_classes", "4032 Debrecen, Nagyerdei krt. 98.", "47.5566", "21.6097", "Great Forest Campus", "07:00 - 20:00", "+36 52 000 017"),
+        Place(18, "Department of Internal Medicine (2 MC)", "Belgyógyászati Klinika (2 MC)", "academic_classes", "4032 Debrecen, Nagyerdei krt. 98.", DentistryProgram.LAT, DentistryProgram.LON, "Great Forest Campus", "07:00 - 18:00", "+36 52 000 018"),
         Place(16, "Career Office", "Karrier Iroda", "student_services", "4032 Debrecen, Egyetem tér 1.", "47.5473", "21.6238", "Main Campus", "09:00 - 16:00", "+36 52 000 016")
     )
 
@@ -439,14 +344,15 @@ class SeedData(private val hu: Boolean, private val now: Date = Date()) {
             id = 1, messageHeader = l("Welcome to Studyversity", "Üdvözöljük a Studyversityben"), messageDate = at(now, -1, 9), readed = false,
             senderType = "SYSTEM", status = "SENT", format = "html",
             messageBody = "<h3>" + l("Welcome!", "Üdvözöljük!") + "</h3><p>" + l(
-                "This is a sample message of the offline demo. Real notifications will appear here when the server is connected.",
-                "Ez egy minta üzenet az offline demóból. A valódi értesítések a szerver csatlakoztatása után jelennek meg itt."
+                "Your timetable, courses, exams and the messages of your instructors are collected here.",
+                "Itt találja órarendjét, kurzusait, vizsgáit és oktatói üzeneteit."
             ) + "</p>"
         ),
         MessageDetail(
-            id = 2, messageHeader = l("Exam registration reminder", "Vizsgajelentkezési emlékeztető"), messageDate = at(now, -3, 14), readed = false,
+            id = 2, messageHeader = l("Examination period 2026/27 autumn", "Vizsgaidőszak 2026/27 ősz"), messageDate = at(now, -3, 14), readed = false,
             senderType = "NEPTUN", status = "SENT", format = "html",
-            messageBody = "<p>" + l("Exam registration closes in two days. Please check your exam list.", "A vizsgajelentkezés két nap múlva lezárul. Kérjük, ellenőrizze vizsgalistáját.") + "</p>"
+            messageBody = "<p>" + l("The examination period of the autumn semester runs from December 14, 2026 to January 29, 2027.",
+                "Az őszi félév vizsgaidőszaka 2026. december 14. és 2027. január 29. között tart.") + "</p>"
         ),
         MessageDetail(
             id = 3, messageHeader = l("Library: book due soon", "Könyvtár: közelgő lejárat"), messageDate = at(now, -5, 8), readed = true,
@@ -459,11 +365,21 @@ class SeedData(private val hu: Boolean, private val now: Date = Date()) {
             attachedDocuments = listOf(DocumentVO(id = 1, name = "campus-run", url = SITE))
         ),
         MessageDetail(
-            id = 5, messageHeader = l("Timetable change", "Órarendi változás"), messageDate = at(now, -12, 16), readed = true,
+            id = 5, messageHeader = l("Internal Medicine: lecture hall 2 MC", "Belgyógyászat: 2 MC előadó"), messageDate = at(now, -12, 16), readed = true,
             senderType = "NEPTUN", status = "SENT", format = "html",
-            messageBody = "<p>" + l("Thursday's lecture moves to room IK 103.", "A csütörtöki előadás az IK 103-as terembe kerül.") + "</p>"
+            messageBody = "<p>" + l("Lectures take place on Wednesdays 10:00-11:00 and practices on Thursdays 15:00-16:00 in 2 MC.",
+                "Az előadások szerdánként 10:00-11:00, a gyakorlatok csütörtökönként 15:00-16:00 között vannak a 2 MC teremben.") + "</p>"
         )
     )
+
+    /** E-mails sent by an instructor, shown as messages (ids start at 1000). */
+    fun mailAsMessage(m: MailItem, read: Boolean): MessageDetail = MessageDetail(
+        id = m.id, messageHeader = m.subject, messageDate = m.sentAt, readed = read, senderType = "INSTRUCTOR", status = "SENT", format = "html",
+        messageBody = "<p><b>" + l("From", "Feladó") + ":</b> " + escape(m.from) + "</p><p>" +
+            escape(m.body).replace("\r\n", "\n").replace("\n", "<br/>") + "</p>"
+    )
+
+    private fun escape(s: String?) = android.text.TextUtils.htmlEncode(s.orEmpty())
 
     fun moodAlreadyAnswered() = l("You have already told us how you feel today.", "Ma már megadtad a hangulatodat.")
 
@@ -573,6 +489,7 @@ class SeedData(private val hu: Boolean, private val now: Date = Date()) {
 
     companion object {
         /** Reported days needed per mood game level (365 days over five levels, like the original). */
+        const val INSTRUCTOR_NAME = "Dr. Kelemen Zoltán"
         const val STAGE_DAYS = 73
         const val SITE = "https://www.unideb.hu/"
     }

@@ -3,11 +3,10 @@
     <string name="retry">Újra</string>
     <string name="unknown_error">Valami hiba történt. Kérjük, próbáld újra.</string>
     <string name="login_title">Bejelentkezés</string>
-    <string name="login_neptun_code">Neptun-kód</string>
+    <string name="login_neptun_code">Felhasználónév vagy Neptun-kód</string>
     <string name="login_password">Jelszó</string>
     <string name="login_button">Bejelentkezés</string>
-    <string name="login_offline_hint">Offline demó mód: a szerver csatlakoztatásáig minden Neptun-kód és jelszó elfogadott.</string>
-    <string name="login_required">Kérjük, add meg a Neptun-kódodat és a jelszavadat.</string>
+    <string name="login_required">Kérjük, add meg a felhasználónevedet és a jelszavadat.</string>
     <string name="permission_denied_calendar">Az órák mentéséhez naptár-engedély szükséges.</string>
     <string name="timetable_saved_to_calendar">Az összes óra mentve a naptáradba.</string>
     <string name="event_saved_to_calendar">Az óra mentve a naptáradba.</string>
@@ -18,4 +17,5 @@
     <string name="mood_gift_chosen">Kiválasztott jutalom: %1$s</string>
     <string name="add_chip">Hozzáadás</string>
     <string name="ok">OK</string>
+    <string name="login_invalid">Hibás felhasználónév vagy jelszó.</string>
 </resources>

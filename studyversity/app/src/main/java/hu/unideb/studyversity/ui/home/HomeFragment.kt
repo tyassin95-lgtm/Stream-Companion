@@ -20,6 +20,7 @@ import hu.unideb.studyversity.databinding.HomeFragmentBinding
 import hu.unideb.studyversity.data.model.NewsChannel
 import hu.unideb.studyversity.ui.base.BaseFragment
 import hu.unideb.studyversity.ui.community.CommunityActivity
+import hu.unideb.studyversity.ui.instructor.InstructorActivity
 import hu.unideb.studyversity.ui.mood.ActivityMoodHolder
 import hu.unideb.studyversity.ui.university_matters.university_locale.InstitutionListActivity
 import hu.unideb.studyversity.ui.webview.WebViewFragment
@@ -107,7 +108,9 @@ class HomeFragment : BaseFragment() {
             b.menuItemIcon.setImageDrawable(wrapped)
         }
 
-        b.root.visibility = when (sub.parentId) {
+        val instructor = session.currentUser?.isInstructor == true
+        b.root.visibility = if (instructor && sub.id in HomeViewModel.STUDENT_ONLY) View.GONE else when (sub.parentId) {
+            SlideUpMenuItem.INSTRUCTORS_ONLY -> if (instructor) View.VISIBLE else View.GONE
             SlideUpMenuItem.ONLY_WHEN_LOGGED_IN -> if (loggedIn) View.VISIBLE else View.GONE
             SlideUpMenuItem.ONLY_WHEN_HAPPY_CHALLENGE_ON -> if (prefs.happyChallengeEnabled) View.VISIBLE else View.GONE
             else -> View.VISIBLE
@@ -161,6 +164,7 @@ class HomeFragment : BaseFragment() {
 
     private fun handleMenuItemClick(menuId: Int) {
         when (menuId) {
+            R.id.menu_instructor_console -> startActivity(Intent(requireContext(), InstructorActivity::class.java))
             R.id.menu_profile -> nav(R.id.profileFragment)
             R.id.menu_time_table -> nav(R.id.timeTableFragment)
             R.id.menu_course_informations -> nav(R.id.coursesInformationFragment)
